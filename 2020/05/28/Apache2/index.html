@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Debian10 搭建 DNS, Fuchenchenle">
+    <meta name="keywords" content="Debian10 搭建 Apache2, Fuchenchenle">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Debian10 搭建 DNS | Fuchenchenle</title>
+    <title>Debian10 搭建 Apache2 | Fuchenchenle</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -291,7 +291,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Debian10 搭建 DNS</h1>
+                    <h1 class="description center-align post-title">Debian10 搭建 Apache2</h1>
                 </div>
             </div>
         </div>
@@ -442,7 +442,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    325
+                    274
                 </div>
                 
 
@@ -454,58 +454,27 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                 <center>基于 网络系统管理 DNS解析基础教程</center>
+                <center>基于 网络系统管理 Apache2虚拟主机基础教程</center>
 
-<h3 id="安装-bind-以及dns解析工具"><a href="#安装-bind-以及dns解析工具" class="headerlink" title="安装 bind 以及dns解析工具"></a>安装 bind 以及dns解析工具</h3><pre><code>apt install -y bind9
+<h3 id="安装Apache2"><a href="#安装Apache2" class="headerlink" title="安装Apache2"></a>安装Apache2</h3><pre><code>apt install -y apache2</code></pre><h3 id="创建网页目录"><a href="#创建网页目录" class="headerlink" title="创建网页目录"></a>创建网页目录</h3><pre><code>mkdir -p /var/www/fuchen.com/html</code></pre><h3 id="编辑创建的目录"><a href="#编辑创建的目录" class="headerlink" title="编辑创建的目录"></a>编辑创建的目录</h3><pre><code>vim /var/www/fuchen.com/html/index/html</code></pre><h5 id="添加如下内容"><a href="#添加如下内容" class="headerlink" title="添加如下内容"></a>添加如下内容</h5><pre><code>&lt;html&gt;
+    &lt;head&gt;  
+        &lt;title&gt;Welcome to fuchen.com!&lt;/title&gt;  #网页标题
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Success!  The fuchen.com server block is working!&lt;/h1&gt;#内容
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre><h3 id="配置虚拟主机文件"><a href="#配置虚拟主机文件" class="headerlink" title="配置虚拟主机文件"></a>配置虚拟主机文件</h3><pre><code>vim /etc/apache2/sites-available/fuchen.com.conf</code></pre><h5 id="修改并且添加"><a href="#修改并且添加" class="headerlink" title="修改并且添加"></a>修改并且添加</h5><pre><code>&lt;VirtualHost *:80&gt;
+    ServerAdmin admin@fuchen.com  #管理员邮箱
+    ServerName fuchen.com    #虚拟主机域名
+    ServerAlias www.fuchen.com    #虚拟主机域名别称
+DocumentRoot /var/www/fuchen.com/html    #虚拟主机根目录
+Deny/Allow From all        #禁止/允许 所有人访问
+Deny/Allow 172.168.70.172    #禁止/允许访问的ip
+ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+&lt;/VirtualHost&gt;</code></pre><p><strong><em>如果觉得麻烦 可以复制  <code>/etc/apche2/sites-available/000-default.comf</code> 中的配置文件作为模板</em></strong></p>
+<h3 id="关闭默认站点"><a href="#关闭默认站点" class="headerlink" title="关闭默认站点"></a>关闭默认站点</h3><pre><code>a2ensite 000-default.conf</code></pre><h3 id="启动自己站点"><a href="#启动自己站点" class="headerlink" title="启动自己站点"></a>启动自己站点</h3><pre><code>a2ensite fuchen.com.conf</code></pre><h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><pre><code>systemctl restart apache2</code></pre><p><strong>本文章结合 <a href="https://fuchenchenle.cn/2020/05/28/DNS/" target="_blank" rel="noopener">Debian10 搭建 DNS</a> 使用</strong></p>
 
-apt install -y dnsutils</code></pre><h3 id="修改DNS配置"><a href="#修改DNS配置" class="headerlink" title="修改DNS配置"></a>修改DNS配置</h3><pre><code>vim /etc/resolv.conf</code></pre><h3 id="将DNS指向需要解析的域名"><a href="#将DNS指向需要解析的域名" class="headerlink" title="将DNS指向需要解析的域名"></a>将DNS指向需要解析的域名</h3><pre><code>search fuchen.com    #需要解析的域名
-
-nameserver  172.168.70.176    #需要解析的ip</code></pre><h3 id="修改主配置文件"><a href="#修改主配置文件" class="headerlink" title="修改主配置文件"></a>修改主配置文件</h3><pre><code>vim  /etc/bind/named.conf</code></pre><h5 id="添加正向解析"><a href="#添加正向解析" class="headerlink" title="添加正向解析"></a>添加正向解析</h5><pre><code>Zone &quot;fuchen.com&quot;{
-
-   Type master;
-
-   File &quot;/etc/bind/db.fuchen.com&quot;;   #正向解析记录文件路径
-
-};</code></pre><h5 id="添加反向解析"><a href="#添加反向解析" class="headerlink" title="添加反向解析"></a>添加反向解析</h5><pre><code>Zone &quot;70.168.172.in-addr.arpa&quot; {
-
-   Type master;
-
-   File &quot;/etc/bind/db.70.168.172&quot;;  #反向解析记录文件路径
-
-};</code></pre><h3 id="查询服务器运行状态"><a href="#查询服务器运行状态" class="headerlink" title="查询服务器运行状态"></a>查询服务器运行状态</h3><pre><code>systemctl status bind9</code></pre><h3 id="进入bind目录，将db-local文件复制，作为正向解析记录的模板"><a href="#进入bind目录，将db-local文件复制，作为正向解析记录的模板" class="headerlink" title="进入bind目录，将db.local文件复制，作为正向解析记录的模板"></a>进入bind目录，将db.local文件复制，作为正向解析记录的模板</h3><pre><code>cd /etc/bind/
-
-cp db.local db.fuchen.com</code></pre><h3 id="打开fuchen-com的解析记录文件"><a href="#打开fuchen-com的解析记录文件" class="headerlink" title="打开fuchen.com的解析记录文件"></a>打开fuchen.com的解析记录文件</h3><pre><code>vim db.fuchen.com</code></pre><h5 id="修改格式如下"><a href="#修改格式如下" class="headerlink" title="修改格式如下"></a>修改格式如下</h5><pre><code>$TTL  604800
-
-@    IN   SOA   fuchen.com. admin.test.com. (
-
-​               2     ; Serial
-
-​             604800     ; Refresh
-
-​             86400     ; Retry
-
-​            2419200     ; Expire
-
-​             604800 )    ; Negative Cache TTL
-
-;
-
-@    IN   NS   ns.fuchen.com.
-
-@    IN   A    172.168.70.176
-
-\*    IN   A    172.168.70.176</code></pre><h3 id="复制反向解析文件"><a href="#复制反向解析文件" class="headerlink" title="复制反向解析文件"></a>复制反向解析文件</h3><pre><code>cp db.127 db.70.168.172</code></pre><h3 id="配置反向解析文件"><a href="#配置反向解析文件" class="headerlink" title="配置反向解析文件"></a>配置反向解析文件</h3><pre><code>vim db.70.168.172</code></pre><h5 id="格式如下"><a href="#格式如下" class="headerlink" title="格式如下"></a>格式如下</h5><pre><code>$TTL    604800
-@       IN      SOA     fuchen.com. admin.fuchen.com. (
-                              1         ; Serial
-                         604800         ; Refresh
-                          86400         ; Retry
-                        2419200         ; Expire
-                         604800 )       ; Negative Cache TTL
-;
-@       IN      NS      ns.fuchen.com.
-171     IN      PTR     web.fuchen.com.
-</code></pre><h3 id="查看解析配置"><a href="#查看解析配置" class="headerlink" title="查看解析配置"></a>查看解析配置</h3><pre><code>www.fuchen.com@172.168.70.176
-nslookup www.fuchen.com</code></pre>
             </div>
             <hr/>
 
@@ -520,7 +489,7 @@ nslookup www.fuchen.com</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">fuchenchenle</a>
+                    <a href="/about" rel="external nofollow noreferrer">Fuchenchenle</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -530,7 +499,7 @@ nslookup www.fuchen.com</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/05/28/DNS/">http://yoursite.com/2020/05/28/DNS/</a>
+                    <a href="http://yoursite.com/2020/05/28/Apache2/">http://yoursite.com/2020/05/28/Apache2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -543,7 +512,7 @@ nslookup www.fuchen.com</code></pre>
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">fuchenchenle</a>
+                    <a href="/about" target="_blank">Fuchenchenle</a>
                     !
                 </span>
             </div>
@@ -737,30 +706,31 @@ nslookup www.fuchen.com</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/28/NFS/">
+                <a href="/2020/05/28/Apache2/">
                     <div class="card-image">
                         
-                        <img src="/img/1/Debian10.png" class="responsive-img" alt="Debian10 搭建NFS">
+                        <img src="/img/1/Debian10.png" class="responsive-img" alt="Debian10 搭建 Apache2">
                         
-                        <span class="card-title">Debian10 搭建NFS</span>
+                        <span class="card-title">Debian10 搭建 Apache2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于 网络系统管理 NFS基础搭建教程
+                            基于 网络系统管理 Apache2虚拟主机基础教程
 
-创建共享文件夹mkdir /home/share创建挂载路径mkdir /home/test安装NFS服务apt –get install nfs-kernel-server –y打开编辑文件，写入
+安装Apache2apt install -y apache2创建网页目录mkdir -p /var/www/fuchen.com/html编辑创建的目录vim /var/www/fuc
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -773,6 +743,7 @@ nslookup www.fuchen.com</code></pre>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -791,25 +762,25 @@ nslookup www.fuchen.com</code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/27/Samba/">
+                <a href="/2020/05/28/NFS/">
                     <div class="card-image">
                         
-                        <img src="/img/1/Debian10.png" class="responsive-img" alt="Debian10 搭建Samba">
+                        <img src="/img/1/Debian10.png" class="responsive-img" alt="Debian10 搭建NFS">
                         
-                        <span class="card-title">Debian10 搭建Samba</span>
+                        <span class="card-title">Debian10 搭建NFS</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于 网络系统管理 Samba搭建的基础教程
+                            基于 网络系统管理 NFS基础搭建教程
 
-安装Samba服务apt install samba -y 创建用户useradd user将用户加入samba组smbpasswd -a user 创建一个共享文件mkdir /home/s
+创建共享文件夹mkdir /home/share创建挂载路径mkdir /home/test安装NFS服务apt –get install nfs-kernel-server –y打开编辑文件，写入
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-28
                             </span>
                         <span class="publish-author">
                             
