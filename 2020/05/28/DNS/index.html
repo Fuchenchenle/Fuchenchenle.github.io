@@ -454,7 +454,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>​                                                  基于 网络系统管理 DNS解析基础教程</p>
+                 <center>基于 网络系统管理 DNS解析基础教程</center>>
+
 <h3 id="安装-bind-以及dns解析工具"><a href="#安装-bind-以及dns解析工具" class="headerlink" title="安装 bind 以及dns解析工具"></a>安装 bind 以及dns解析工具</h3><pre><code>apt install -y bind9
 
 apt install -y dnsutils</code></pre><h3 id="修改DNS配置"><a href="#修改DNS配置" class="headerlink" title="修改DNS配置"></a>修改DNS配置</h3><pre><code>vim /etc/resolv.conf</code></pre><h3 id="将DNS指向需要解析的域名"><a href="#将DNS指向需要解析的域名" class="headerlink" title="将DNS指向需要解析的域名"></a>将DNS指向需要解析的域名</h3><pre><code>search fuchen.com    #需要解析的域名
@@ -690,7 +691,7 @@ nslookup www.fuchen.com</code></pre>
     <div id="rewardModal" class="modal">
         <div class="modal-content">
             <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力  （我的肚子已经菠萝菠萝哒）</h4>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
             <div class="reward-content">
                 <div class="reward-tabs">
                     <ul class="tabs row">
@@ -736,32 +737,30 @@ nslookup www.fuchen.com</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/28/DNS/">
+                <a href="/2020/05/28/NFS/">
                     <div class="card-image">
                         
-                        <img src="/img/1/Debian10.png" class="responsive-img" alt="Debian10 搭建 DNS">
+                        <img src="/img/1/Debian10.png" class="responsive-img" alt="Debian10 搭建NFS">
                         
-                        <span class="card-title">Debian10 搭建 DNS</span>
+                        <span class="card-title">Debian10 搭建NFS</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ​                                                  基于 网络系统管理 DNS解析基础教程
-安装 bind 以及dns解析工具apt install -y bind9
+                            基于 网络系统管理 NFS基础搭建教程
 
-apt instal
+创建共享文件夹mkdir /home/share创建挂载路径mkdir /home/test安装NFS服务apt –get install nfs-kernel-server –y打开编辑文件，写入
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-28
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-28
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -774,7 +773,6 @@ apt instal
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -804,8 +802,9 @@ apt instal
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ​                                          基于网络系统管理Samba搭建的基础教程
-安装Samba服务apt install samba -y 创建用户useradd user将用户加入samba
+                            基于 网络系统管理 Samba搭建的基础教程
+
+安装Samba服务apt install samba -y 创建用户useradd user将用户加入samba组smbpasswd -a user 创建一个共享文件mkdir /home/s
                         
                     </div>
                     <div class="publish-info">

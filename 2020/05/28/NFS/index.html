@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Debian10 搭建Samba, Fuchenchenle">
+    <meta name="keywords" content="Debian10 搭建NFS, Fuchenchenle">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Debian10 搭建Samba | Fuchenchenle</title>
+    <title>Debian10 搭建NFS | Fuchenchenle</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -291,7 +291,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Debian10 搭建Samba</h1>
+                    <h1 class="description center-align post-title">Debian10 搭建NFS</h1>
                 </div>
             </div>
         </div>
@@ -433,7 +433,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-27
+                    2020-05-28
                 </div>
                 
 
@@ -442,7 +442,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    183
+                    117
                 </div>
                 
 
@@ -454,19 +454,12 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <center>基于 网络系统管理 Samba搭建的基础教程</center>
+                <center>基于 网络系统管理 NFS基础搭建教程</center>
 
-<h3 id="安装Samba服务"><a href="#安装Samba服务" class="headerlink" title="安装Samba服务"></a>安装Samba服务</h3><pre><code>apt install samba -y </code></pre><h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><pre><code>useradd user</code></pre><h3 id="将用户加入samba组"><a href="#将用户加入samba组" class="headerlink" title="将用户加入samba组"></a>将用户加入samba组</h3><pre><code>smbpasswd -a user </code></pre><h3 id="创建一个共享文件"><a href="#创建一个共享文件" class="headerlink" title="创建一个共享文件"></a>创建一个共享文件</h3><pre><code>mkdir /home/share</code></pre><h3 id="设置共享文件权限"><a href="#设置共享文件权限" class="headerlink" title="设置共享文件权限"></a>设置共享文件权限</h3><pre><code>chmod 777 /home/share</code></pre><h3 id="打开samba主配文件修改"><a href="#打开samba主配文件修改" class="headerlink" title="打开samba主配文件修改"></a>打开samba主配文件修改</h3><pre><code>vim /etc/samba/smb.conf</code></pre><h3 id="在文件最后添加"><a href="#在文件最后添加" class="headerlink" title="在文件最后添加"></a>在文件最后添加</h3><pre><code>    [share]
-        comment = share    #共享描述
-        path = /home/share       #共享目录
-        public = yes                #允许户访问
-        writable = yes              #允许在录下写入
-        directory mask = 0775       #默认创建目录权限 rwxrwxr_x
-        create mask = 0775          #默认创建文件权限 rwxrwxr_x
-        valid users = user      #允许访问该共享的用户
-        write list = user      #可写入共享的用户列表
-        browseable = yes             #该指定共享目录可浏览
-        available = yes              #该指定共享资源可使用 </code></pre>
+<h3 id="创建共享文件夹"><a href="#创建共享文件夹" class="headerlink" title="创建共享文件夹"></a>创建共享文件夹</h3><pre><code>mkdir /home/share</code></pre><h3 id="创建挂载路径"><a href="#创建挂载路径" class="headerlink" title="创建挂载路径"></a>创建挂载路径</h3><pre><code>mkdir /home/test</code></pre><h3 id="安装NFS服务"><a href="#安装NFS服务" class="headerlink" title="安装NFS服务"></a>安装NFS服务</h3><pre><code>apt –get install nfs-kernel-server –y</code></pre><h3 id="打开编辑文件，写入挂载配置"><a href="#打开编辑文件，写入挂载配置" class="headerlink" title="打开编辑文件，写入挂载配置"></a>打开编辑文件，写入挂载配置</h3><pre><code>Nano /etc/exports
+
+ /home/share 172.168.70.176(rw,sync,no_root_squash)
+ (文件路径)  （服务器ip）  (可读写，数据同步写入硬盘)</code></pre><h3 id="开启服务"><a href="#开启服务" class="headerlink" title="开启服务"></a>开启服务</h3><pre><code>/etc/init.d/nfs-kernel-server restart </code></pre><h3 id="挂载服务"><a href="#挂载服务" class="headerlink" title="挂载服务"></a>挂载服务</h3><pre><code>mount –t nfs 172.168.70.176:/home/share /home/test</code></pre><h3 id="查看挂载"><a href="#查看挂载" class="headerlink" title="查看挂载"></a>查看挂载</h3><pre><code>df -h</code></pre>
             </div>
             <hr/>
 
@@ -491,7 +484,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/05/27/Samba/">http://yoursite.com/2020/05/27/Samba/</a>
+                    <a href="http://yoursite.com/2020/05/28/NFS/">http://yoursite.com/2020/05/28/NFS/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -698,9 +691,61 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/05/28/NFS/">
+                    <div class="card-image">
+                        
+                        <img src="/img/1/Debian10.png" class="responsive-img" alt="Debian10 搭建NFS">
+                        
+                        <span class="card-title">Debian10 搭建NFS</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            基于 网络系统管理 NFS基础搭建教程
+
+创建共享文件夹mkdir /home/share创建挂载路径mkdir /home/test安装NFS服务apt –get install nfs-kernel-server –y打开编辑文件，写入
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Debian/" class="post-category">
+                                    Debian
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/05/28/DNS/">
                     <div class="card-image">
@@ -721,58 +766,8 @@ apt install -y dnsutils修改DNS配置vim /etc/resolv.conf将DNS指向需要
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-28
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Debian/" class="post-category">
-                                    Debian
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/linux/">
-                        <span class="chip bg-color">linux</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/05/27/Samba/">
-                    <div class="card-image">
-                        
-                        <img src="/img/1/Debian10.png" class="responsive-img" alt="Debian10 搭建Samba">
-                        
-                        <span class="card-title">Debian10 搭建Samba</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            基于 网络系统管理 Samba搭建的基础教程
-
-安装Samba服务apt install samba -y 创建用户useradd user将用户加入samba组smbpasswd -a user 创建一个共享文件mkdir /home/s
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-28
                             </span>
                         <span class="publish-author">
                             
@@ -786,7 +781,6 @@ apt install -y dnsutils修改DNS配置vim /etc/resolv.conf将DNS指向需要
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     

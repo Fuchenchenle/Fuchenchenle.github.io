@@ -337,11 +337,11 @@
                 
                 
                 
-                <a href="/categories/Debian/" title="Debian: 2">
+                <a href="/categories/Debian/" title="Debian: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             style="background-color: #F9EBEA;">Debian
-                        <span class="tag-length">2</span>
+                        <span class="tag-length">3</span>
                     </span>
                 </a>
                 
@@ -359,6 +359,53 @@
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2020/05/28/NFS/">
+                        <div class="card-image tag-image">
+                            
+                            <img src="/img/1/Debian10.png" class="responsive-img" alt="Debian10 搭建NFS">
+                            
+                            <span class="card-title">Debian10 搭建NFS</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                基于 网络系统管理 NFS基础搭建教程
+
+创建共享文件夹mkdir /home/share创建挂载路径mkdir /home/test安装NFS服务apt –get install nfs-kernel-server –y打开编辑文件，写入
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-28
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Debian/" class="post-category">
+                                    Debian
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/linux/">
+                            <span class="chip bg-color">linux</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2020/05/28/DNS/">
                         <div class="card-image tag-image">
                             
@@ -370,10 +417,11 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                ​                                                  基于 网络系统管理 DNS解析基础教程
+                                 基于 网络系统管理 DNS解析基础教程>
+
 安装 bind 以及dns解析工具apt install -y bind9
 
-apt instal
+apt install -y dnsutils修改DNS配置vim /etc/resolv.conf将DNS指向需要
                             
                         </div>
                         <div class="publish-info">
@@ -418,8 +466,9 @@ apt instal
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                ​                                          基于网络系统管理Samba搭建的基础教程
-安装Samba服务apt install samba -y 创建用户useradd user将用户加入samba
+                                基于 网络系统管理 Samba搭建的基础教程
+
+安装Samba服务apt install samba -y 创建用户useradd user将用户加入samba组smbpasswd -a user 创建一个共享文件mkdir /home/s
                             
                         </div>
                         <div class="publish-info">
