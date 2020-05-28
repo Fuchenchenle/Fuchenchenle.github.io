@@ -8,9 +8,21 @@
       <link href="/2020/05/28/Mariadb/"/>
       <url>/2020/05/28/Mariadb/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<center>基于 网络系统管理 Mariadb搭建基础教程</center><h3 id="安装数据库"><a href="#安装数据库" class="headerlink" title="安装数据库"></a>安装数据库</h3><pre><code>root@debian:~# apt install –y mariadb-server</code></pre><h3 id="以root用户登录数据库"><a href="#以root用户登录数据库" class="headerlink" title="以root用户登录数据库"></a>以root用户登录数据库</h3><pre><code>root@debian:~# Mysql –u root –p</code></pre><h3 id="创建一个库-名为staff"><a href="#创建一个库-名为staff" class="headerlink" title="创建一个库  名为staff"></a>创建一个库  名为staff</h3><pre><code>MariaDB [(none)]&gt; Create database staff;</code></pre><h3 id="切换到staff库"><a href="#切换到staff库" class="headerlink" title="切换到staff库"></a>切换到staff库</h3><pre><code>MariaDB [(none)]&gt;use staff;</code></pre><h3 id="添加名字为-user-数据表"><a href="#添加名字为-user-数据表" class="headerlink" title="添加名字为 user 数据表"></a>添加名字为 user 数据表</h3><pre><code>MariaDB [staff]&gt; create table staff.user(</code></pre><pre><code>  -&gt; id int primary key,  #primary key为主键  -&gt; name varchar(10),  -&gt; birthday datetime,  -&gt; sex char(8),  -&gt; password char(128)-&gt; );</code></pre><h3 id="查看数据表"><a href="#查看数据表" class="headerlink" title="查看数据表"></a>查看数据表</h3><pre><code>MariaDB [staff]&gt;desc user；</code></pre><h3 id="导出并且备份数据库"><a href="#导出并且备份数据库" class="headerlink" title="导出并且备份数据库"></a>导出并且备份数据库</h3><pre><code>root@debian:~#Mysqldump staff &gt;staff.sql                        数据库  备份名称 </code></pre>]]></content>
       
       
+      <categories>
+          
+          <category> Debian </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
       
     </entry>
     

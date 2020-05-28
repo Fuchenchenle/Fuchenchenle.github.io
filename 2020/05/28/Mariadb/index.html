@@ -286,7 +286,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/img/1/Debian10.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -406,12 +406,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Debian/" class="post-category">
+                                Debian
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -429,7 +442,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    137
                 </div>
                 
 
@@ -441,7 +454,20 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <center>基于 网络系统管理 Mariadb搭建基础教程</center>
+
+<h3 id="安装数据库"><a href="#安装数据库" class="headerlink" title="安装数据库"></a>安装数据库</h3><pre><code>root@debian:~# apt install –y mariadb-server</code></pre><h3 id="以root用户登录数据库"><a href="#以root用户登录数据库" class="headerlink" title="以root用户登录数据库"></a>以root用户登录数据库</h3><pre><code>root@debian:~# Mysql –u root –p</code></pre><h3 id="创建一个库-名为staff"><a href="#创建一个库-名为staff" class="headerlink" title="创建一个库  名为staff"></a>创建一个库  名为staff</h3><pre><code>MariaDB [(none)]&gt; Create database staff;</code></pre><h3 id="切换到staff库"><a href="#切换到staff库" class="headerlink" title="切换到staff库"></a>切换到staff库</h3><pre><code>MariaDB [(none)]&gt;use staff;</code></pre><h3 id="添加名字为-user-数据表"><a href="#添加名字为-user-数据表" class="headerlink" title="添加名字为 user 数据表"></a>添加名字为 user 数据表</h3><pre><code>MariaDB [staff]&gt; create table staff.user(</code></pre><pre><code>  -&gt; id int primary key,  #primary key为主键
+
+  -&gt; name varchar(10),
+
+  -&gt; birthday datetime,
+
+  -&gt; sex char(8),
+
+  -&gt; password char(128)
+
+-&gt; );</code></pre><h3 id="查看数据表"><a href="#查看数据表" class="headerlink" title="查看数据表"></a>查看数据表</h3><pre><code>MariaDB [staff]&gt;desc user；</code></pre><h3 id="导出并且备份数据库"><a href="#导出并且备份数据库" class="headerlink" title="导出并且备份数据库"></a>导出并且备份数据库</h3><pre><code>root@debian:~#Mysqldump staff &gt;staff.sql
+                        数据库  备份名称 </code></pre>
             </div>
             <hr/>
 
@@ -503,7 +529,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -677,8 +707,7 @@
                 <a href="/2020/05/28/Mariadb/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Mariadb">
+                        <img src="/img/1/Debian10.png" class="responsive-img" alt="Mariadb">
                         
                         <span class="card-title">Mariadb</span>
                     </div>
@@ -686,7 +715,9 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            基于 网络系统管理 Mariadb搭建基础教程
+
+安装数据库root@debian:~# apt install –y mariadb-server以root用户登录数据库root@debian:~# Mysql –u root –p创建一
                         
                     </div>
                     <div class="publish-info">
@@ -695,13 +726,25 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Fuchenchenle
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Debian/" class="post-category">
+                                    Debian
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
