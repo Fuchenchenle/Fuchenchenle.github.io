@@ -442,7 +442,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    317
+                    325
                 </div>
                 
 
@@ -459,17 +459,17 @@
 
 apt install -y dnsutils</code></pre><h3 id="修改DNS配置"><a href="#修改DNS配置" class="headerlink" title="修改DNS配置"></a>修改DNS配置</h3><pre><code>vim /etc/resolv.conf</code></pre><h3 id="将DNS指向需要解析的域名"><a href="#将DNS指向需要解析的域名" class="headerlink" title="将DNS指向需要解析的域名"></a>将DNS指向需要解析的域名</h3><pre><code>search fuchen.com    #需要解析的域名
 
-nameserver  172.168.70.176    #需要解析的ip</code></pre><h3 id="修改主配置文件"><a href="#修改主配置文件" class="headerlink" title="修改主配置文件"></a>修改主配置文件</h3><pre><code>vim  /etc/bind/named.conf</code></pre><h5 id="添加正向解析"><a href="#添加正向解析" class="headerlink" title="添加正向解析"></a>添加正向解析</h5><pre><code>Zone “fuchen.com”{
+nameserver  172.168.70.176    #需要解析的ip</code></pre><h3 id="修改主配置文件"><a href="#修改主配置文件" class="headerlink" title="修改主配置文件"></a>修改主配置文件</h3><pre><code>vim  /etc/bind/named.conf</code></pre><h5 id="添加正向解析"><a href="#添加正向解析" class="headerlink" title="添加正向解析"></a>添加正向解析</h5><pre><code>Zone &quot;fuchen.com&quot;{
 
    Type master;
 
-   File “/etc/bind/db.fuchen.com”;   #正向解析记录文件路径
+   File &quot;/etc/bind/db.fuchen.com&quot;;   #正向解析记录文件路径
 
-};</code></pre><h5 id="添加反向解析"><a href="#添加反向解析" class="headerlink" title="添加反向解析"></a>添加反向解析</h5><pre><code>Zone “70.168.172.in-addr.arpa” {
+};</code></pre><h5 id="添加反向解析"><a href="#添加反向解析" class="headerlink" title="添加反向解析"></a>添加反向解析</h5><pre><code>Zone &quot;70.168.172.in-addr.arpa&quot; {
 
    Type master;
 
-   File “/etc/bind/db.70.168.172”;  #反向解析记录文件路径
+   File &quot;/etc/bind/db.70.168.172&quot;;  #反向解析记录文件路径
 
 };</code></pre><h3 id="查询服务器运行状态"><a href="#查询服务器运行状态" class="headerlink" title="查询服务器运行状态"></a>查询服务器运行状态</h3><pre><code>systemctl status bind9</code></pre><h3 id="进入bind目录，将db-local文件复制，作为正向解析记录的模板"><a href="#进入bind目录，将db-local文件复制，作为正向解析记录的模板" class="headerlink" title="进入bind目录，将db.local文件复制，作为正向解析记录的模板"></a>进入bind目录，将db.local文件复制，作为正向解析记录的模板</h3><pre><code>cd /etc/bind/
 
@@ -690,7 +690,7 @@ nslookup www.fuchen.com</code></pre>
     <div id="rewardModal" class="modal">
         <div class="modal-content">
             <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <h4 class="reward-title">你的赏识是我前进的动力  （我的肚子已经菠萝菠萝哒）</h4>
             <div class="reward-content">
                 <div class="reward-tabs">
                     <ul class="tabs row">
@@ -804,8 +804,8 @@ apt instal
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于网络系统管理Samba搭建的基础教程
-安装Samba服务apt install samba -y 创建用户useradd user将用户加入samba组smbpasswd -a user 创建一个共享文件mkdir /home/shar
+                            ​                                          基于网络系统管理Samba搭建的基础教程
+安装Samba服务apt install samba -y 创建用户useradd user将用户加入samba
                         
                     </div>
                     <div class="publish-info">
@@ -1193,6 +1193,8 @@ $(function () {
 
     
 
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     
