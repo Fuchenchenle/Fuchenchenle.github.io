@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Debian10 搭建 DNS</title>
+      <link href="/2020/05/28/DNS/"/>
+      <url>/2020/05/28/DNS/</url>
+      
+        <content type="html"><![CDATA[<p>​                                                  基于 网络系统管理 DNS解析基础教程</p><h3 id="安装-bind-以及dns解析工具"><a href="#安装-bind-以及dns解析工具" class="headerlink" title="安装 bind 以及dns解析工具"></a>安装 bind 以及dns解析工具</h3><pre><code>apt install -y bind9apt install -y dnsutils</code></pre><h3 id="修改DNS配置"><a href="#修改DNS配置" class="headerlink" title="修改DNS配置"></a>修改DNS配置</h3><pre><code>vim /etc/resolv.conf</code></pre><h3 id="将DNS指向需要解析的域名"><a href="#将DNS指向需要解析的域名" class="headerlink" title="将DNS指向需要解析的域名"></a>将DNS指向需要解析的域名</h3><pre><code>search fuchen.com    #需要解析的域名nameserver  172.168.70.176    #需要解析的ip</code></pre><h3 id="修改主配置文件"><a href="#修改主配置文件" class="headerlink" title="修改主配置文件"></a>修改主配置文件</h3><pre><code>vim  /etc/bind/named.conf</code></pre><h5 id="添加正向解析"><a href="#添加正向解析" class="headerlink" title="添加正向解析"></a>添加正向解析</h5><pre><code>Zone “fuchen.com”{   Type master;   File “/etc/bind/db.fuchen.com”;   #正向解析记录文件路径};</code></pre><h5 id="添加反向解析"><a href="#添加反向解析" class="headerlink" title="添加反向解析"></a>添加反向解析</h5><pre><code>Zone “70.168.172.in-addr.arpa” {   Type master;   File “/etc/bind/db.70.168.172”;  #反向解析记录文件路径};</code></pre><h3 id="查询服务器运行状态"><a href="#查询服务器运行状态" class="headerlink" title="查询服务器运行状态"></a>查询服务器运行状态</h3><pre><code>systemctl status bind9</code></pre><h3 id="进入bind目录，将db-local文件复制，作为正向解析记录的模板"><a href="#进入bind目录，将db-local文件复制，作为正向解析记录的模板" class="headerlink" title="进入bind目录，将db.local文件复制，作为正向解析记录的模板"></a>进入bind目录，将db.local文件复制，作为正向解析记录的模板</h3><pre><code>cd /etc/bind/cp db.local db.fuchen.com</code></pre><h3 id="打开fuchen-com的解析记录文件"><a href="#打开fuchen-com的解析记录文件" class="headerlink" title="打开fuchen.com的解析记录文件"></a>打开fuchen.com的解析记录文件</h3><pre><code>vim db.fuchen.com</code></pre><h5 id="修改格式如下"><a href="#修改格式如下" class="headerlink" title="修改格式如下"></a>修改格式如下</h5><pre><code>$TTL  604800@    IN   SOA   fuchen.com. admin.test.com. (​               2     ; Serial​             604800     ; Refresh​             86400     ; Retry​            2419200     ; Expire​             604800 )    ; Negative Cache TTL;@    IN   NS   ns.fuchen.com.@    IN   A    172.168.70.176\*    IN   A    172.168.70.176</code></pre><h3 id="复制反向解析文件"><a href="#复制反向解析文件" class="headerlink" title="复制反向解析文件"></a>复制反向解析文件</h3><pre><code>cp db.127 db.70.168.172</code></pre><h3 id="配置反向解析文件"><a href="#配置反向解析文件" class="headerlink" title="配置反向解析文件"></a>配置反向解析文件</h3><pre><code>vim db.70.168.172</code></pre><h5 id="格式如下"><a href="#格式如下" class="headerlink" title="格式如下"></a>格式如下</h5><pre><code>$TTL    604800@       IN      SOA     fuchen.com. admin.fuchen.com. (                              1         ; Serial                         604800         ; Refresh                          86400         ; Retry                        2419200         ; Expire                         604800 )       ; Negative Cache TTL;@       IN      NS      ns.fuchen.com.171     IN      PTR     web.fuchen.com.</code></pre><h3 id="查看解析配置"><a href="#查看解析配置" class="headerlink" title="查看解析配置"></a>查看解析配置</h3><pre><code>www.fuchen.com@172.168.70.176nslookup www.fuchen.com</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Debian </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Debian10 搭建Samba</title>
       <link href="/2020/05/27/Samba/"/>
       <url>/2020/05/27/Samba/</url>
