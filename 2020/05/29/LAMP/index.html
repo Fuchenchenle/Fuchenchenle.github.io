@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Mariadb, Fuchenchenle">
+    <meta name="keywords" content="Debian 10 搭建 LAMP, Fuchenchenle">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Mariadb | Fuchenchenle</title>
+    <title>Debian 10 搭建 LAMP | Fuchenchenle</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -291,7 +291,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Mariadb</h1>
+                    <h1 class="description center-align post-title">Debian 10 搭建 LAMP</h1>
                 </div>
             </div>
         </div>
@@ -433,7 +433,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-28
+                    2020-05-29
                 </div>
                 
 
@@ -442,7 +442,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    137
+                    482
                 </div>
                 
 
@@ -454,20 +454,65 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <center>基于 网络系统管理 Mariadb搭建基础教程</center>
+                <center>基于 网络系统管理 LAMP基础搭建教程</center>
 
-<h3 id="安装数据库"><a href="#安装数据库" class="headerlink" title="安装数据库"></a>安装数据库</h3><pre><code>root@debian:~# apt install –y mariadb-server</code></pre><h3 id="以root用户登录数据库"><a href="#以root用户登录数据库" class="headerlink" title="以root用户登录数据库"></a>以root用户登录数据库</h3><pre><code>root@debian:~# Mysql –u root –p</code></pre><h3 id="创建一个库-名为staff"><a href="#创建一个库-名为staff" class="headerlink" title="创建一个库  名为staff"></a>创建一个库  名为staff</h3><pre><code>MariaDB [(none)]&gt; Create database staff;</code></pre><h3 id="切换到staff库"><a href="#切换到staff库" class="headerlink" title="切换到staff库"></a>切换到staff库</h3><pre><code>MariaDB [(none)]&gt;use staff;</code></pre><h3 id="添加名字为-user-数据表"><a href="#添加名字为-user-数据表" class="headerlink" title="添加名字为 user 数据表"></a>添加名字为 user 数据表</h3><pre><code>MariaDB [staff]&gt; create table staff.user(</code></pre><pre><code>  -&gt; id int primary key,  #primary key为主键
+<h3 id="安装Apache2"><a href="#安装Apache2" class="headerlink" title="安装Apache2"></a>安装Apache2</h3><pre><code>apt install -y apche2</code></pre><h3 id="安装php"><a href="#安装php" class="headerlink" title="安装php"></a>安装php</h3><pre><code>apt install -y php libapache2-mod-php php-mysql</code></pre><h3 id="创建php脚本"><a href="#创建php脚本" class="headerlink" title="创建php脚本"></a>创建php脚本</h3><pre><code>vim /var/www/html/info.php</code></pre><h5 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h5><pre><code>&lt;?php phpinfo()；?&gt;</code></pre><p>浏览器输入 <code>ip/info.php</code> 查看版本信息</p>
+<h3 id="安装maridb"><a href="#安装maridb" class="headerlink" title="安装maridb"></a>安装maridb</h3><pre><code>apt install -y mariadb-server</code></pre><h3 id="运行安全脚本"><a href="#运行安全脚本" class="headerlink" title="运行安全脚本"></a>运行安全脚本</h3><pre><code>mysql sercure installation </code></pre><p>安全脚本具体内容可以参考我在b站 发的视频教程 <a href="https://www.bilibili.com/video/BV1AE411N7rm" target="_blank" rel="noopener">Debian 10 搭建LAMP</a>  4分25秒</p>
+<h3 id="安装phpmyadmin"><a href="#安装phpmyadmin" class="headerlink" title="安装phpmyadmin"></a>安装phpmyadmin</h3><pre><code>从[phpmyadmin官网](https://www.phpmyadmin.net/) 获取链接，使用wget命令下载
 
-  -&gt; name varchar(10),
-
-  -&gt; birthday datetime,
-
-  -&gt; sex char(8),
-
-  -&gt; password char(128)
-
--&gt; );</code></pre><h3 id="查看数据表"><a href="#查看数据表" class="headerlink" title="查看数据表"></a>查看数据表</h3><pre><code>MariaDB [staff]&gt;desc user；</code></pre><h3 id="导出并且备份数据库"><a href="#导出并且备份数据库" class="headerlink" title="导出并且备份数据库"></a>导出并且备份数据库</h3><pre><code>root@debian:~#Mysqldump staff &gt;staff.sql
-                        数据库  备份名称 </code></pre>
+之后用tar命令解压到指定的目录</code></pre><p>安装phpmyadmin具体内容可以参考我在b站 发的视频教程 <a href="https://www.bilibili.com/video/BV1AE411N7rm" target="_blank" rel="noopener">Debian 10 搭建LAMP</a>  5分30秒</p>
+<h3 id="将解压好的文件移动到文件夹"><a href="#将解压好的文件移动到文件夹" class="headerlink" title="将解压好的文件移动到文件夹"></a>将解压好的文件移动到文件夹</h3><pre><code>mv phpmyadmin-XX-all-languges /usr/share/phpmyadmin</code></pre><h3 id="设置文件夹权限"><a href="#设置文件夹权限" class="headerlink" title="设置文件夹权限"></a>设置文件夹权限</h3><pre><code>chown –R www-data:www-data /usr/share/phpmyadmin</code></pre><h3 id="写入apche2配置文件"><a href="#写入apche2配置文件" class="headerlink" title="写入apche2配置文件"></a>写入apche2配置文件</h3><pre><code>vim /etc/apache2/conf-enabled/phpmyadmin.conf</code></pre><h5 id="添加-1"><a href="#添加-1" class="headerlink" title="添加"></a>添加</h5><pre class=" language-xml"><code class="language-xml"># phpMyAdmin default Apache configuration
+Alias /phpmyadmin /usr/share/phpmyadmin
+&lt;Directory /usr/share/phpmyadmin>
+Options SymLinksIfOwnerMatch
+DirectoryIndex index.php
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>IfModule</span> <span class="token attr-name">mod_php5.c</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>IfModule</span> <span class="token attr-name">mod_mime.c</span><span class="token punctuation">></span></span>
+AddType application/x-httpd-php .php
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>IfModule</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>FilesMatch</span> <span class="token attr-name">".+\.php$"</span><span class="token punctuation">></span></span>
+SetHandler application/x-httpd-php
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>FilesMatch</span><span class="token punctuation">></span></span>
+php_value include_path .
+php_admin_value upload_tmp_dir /var/lib/phpmyadmin/tmp
+php_admin_value open_basedir /usr/share/phpmyadmin/:/etc/phpmyadmin/:/var/lib/phpmyadmin/:/usr/share/php/php-gettext/:/usr/share/php/php-php-gettext/:/usr/share/javascript/:/usr/share/php/tcpdf/:/usr/share/doc/phpmyadmin/:/usr/share/php/phpseclib/
+php_admin_value mbstring.func_overload 0
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>IfModule</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>IfModule</span> <span class="token attr-name">mod_php.c</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>IfModule</span> <span class="token attr-name">mod_mime.c</span><span class="token punctuation">></span></span>
+AddType application/x-httpd-php .php
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>IfModule</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>FilesMatch</span> <span class="token attr-name">".+\.php$"</span><span class="token punctuation">></span></span>
+SetHandler application/x-httpd-php
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>FilesMatch</span><span class="token punctuation">></span></span>
+php_value include_path .
+php_admin_value upload_tmp_dir /var/lib/phpmyadmin/tmp
+php_admin_value open_basedir /usr/share/phpmyadmin/:/etc/phpmyadmin/:/var/lib/phpmyadmin/:/usr/share/php/php-gettext/:/usr/share/php/php-php-gettext/:/usr/share/javascript/:/usr/share/php/tcpdf/:/usr/share/doc/phpmyadmin/:/usr/share/php/phpseclib/
+php_admin_value mbstring.func_overload 0
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>IfModule</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Directory</span><span class="token punctuation">></span></span>
+# Authorize for setup
+&lt;Directory /usr/share/phpmyadmin/setup>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>IfModule</span> <span class="token attr-name">mod_authz_core.c</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>IfModule</span> <span class="token attr-name">mod_authn_file.c</span><span class="token punctuation">></span></span>
+AuthType Basic
+AuthName "phpMyAdmin Setup"
+AuthUserFile /etc/phpmyadmin/htpasswd.setup
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>IfModule</span><span class="token punctuation">></span></span>
+Require valid-user
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>IfModule</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Directory</span><span class="token punctuation">></span></span>
+# Disallow web access to directories that don't need it
+&lt;Directory /usr/share/phpmyadmin/templates>
+Require all denied
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Directory</span><span class="token punctuation">></span></span>
+&lt;Directory /usr/share/phpmyadmin/libraries>
+Require all denied
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Directory</span><span class="token punctuation">></span></span>
+&lt;Directory /usr/share/phpmyadmin/setup/lib>
+Require all denied
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Directory</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="最后打开浏览器访问"><a href="#最后打开浏览器访问" class="headerlink" title="最后打开浏览器访问"></a>最后打开浏览器访问</h3><pre><code>ip/phpmyadmin</code></pre>
             </div>
             <hr/>
 
@@ -492,7 +537,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/05/28/Mariadb/">http://yoursite.com/2020/05/28/Mariadb/</a>
+                    <a href="http://yoursite.com/2020/05/29/LAMP/">http://yoursite.com/2020/05/29/LAMP/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -699,9 +744,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/05/29/LAMP/">
                     <div class="card-image">
@@ -720,9 +766,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -735,6 +781,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -753,20 +800,20 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/28/Apache2/">
+                <a href="/2020/05/28/Mariadb/">
                     <div class="card-image">
                         
-                        <img src="/img/1/Debian10.png" class="responsive-img" alt="Debian10 搭建 Apache2">
+                        <img src="/img/1/Debian10.png" class="responsive-img" alt="Mariadb">
                         
-                        <span class="card-title">Debian10 搭建 Apache2</span>
+                        <span class="card-title">Mariadb</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于 网络系统管理 Apache2虚拟主机基础教程
+                            基于 网络系统管理 Mariadb搭建基础教程
 
-安装Apache2apt install -y apache2创建网页目录mkdir -p /var/www/fuchen.com/html编辑创建的目录vim /var/www/fuc
+安装数据库root@debian:~# apt install –y mariadb-server以root用户登录数据库root@debian:~# Mysql –u root –p创建一
                         
                     </div>
                     <div class="publish-info">
