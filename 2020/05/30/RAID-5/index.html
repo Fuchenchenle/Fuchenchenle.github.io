@@ -442,7 +442,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    174
+                    197
                 </div>
                 
 
@@ -459,7 +459,8 @@
 
 
 <h3 id="安装mdadm服务"><a href="#安装mdadm服务" class="headerlink" title="安装mdadm服务"></a>安装mdadm服务</h3><pre><code>apt install -y mdadm</code></pre><h3 id="查看磁盘"><a href="#查看磁盘" class="headerlink" title="查看磁盘"></a>查看磁盘</h3><pre><code>lsblk -o NAME,SIZE,FSTYPE,TYPE</code></pre><h3 id="创建RAID5"><a href="#创建RAID5" class="headerlink" title="创建RAID5"></a>创建RAID5</h3><pre><code>mdadm -C /dev/md0 -l5 -n4 –x1 /dev/sd{b,c,d,e}
-mdadm–C /设备名称 –级别 –数量 –热备盘数量  / 盘的位置</code></pre><h3 id="查看阵列"><a href="#查看阵列" class="headerlink" title="查看阵列"></a>查看阵列</h3><pre><code>mdadm -D /dev/md0</code></pre><h3 id="对-RAID5-进行分区"><a href="#对-RAID5-进行分区" class="headerlink" title="对 RAID5 进行分区"></a>对 RAID5 进行分区</h3><pre><code>fdisk /dev/md0</code></pre><h3 id="格式化磁盘"><a href="#格式化磁盘" class="headerlink" title="格式化磁盘"></a>格式化磁盘</h3><pre><code>mkfs.ext4 /dev/md0</code></pre><h3 id="创建挂载点"><a href="#创建挂载点" class="headerlink" title="创建挂载点"></a>创建挂载点</h3><pre><code>mkdir /mnt/raid</code></pre><h3 id="挂在RAID-5"><a href="#挂在RAID-5" class="headerlink" title="挂在RAID 5"></a>挂在RAID 5</h3><pre><code>mount /dev/md0 /mnt/raid</code></pre><h2 id="添加磁盘"><a href="#添加磁盘" class="headerlink" title="添加磁盘"></a>添加磁盘</h2><h3 id="向RAID-添加磁盘"><a href="#向RAID-添加磁盘" class="headerlink" title="向RAID 添加磁盘"></a>向RAID 添加磁盘</h3><pre><code>mdadm --manage /dev/md0 --add /dev/sdf</code></pre><h3 id="拓展磁盘"><a href="#拓展磁盘" class="headerlink" title="拓展磁盘"></a>拓展磁盘</h3><pre><code>mdadm --grow --raid-devices=5    #全部盘数 /dev/md0</code></pre><h3 id="查看阵列-1"><a href="#查看阵列-1" class="headerlink" title="查看阵列"></a>查看阵列</h3><pre><code>Mdadm–D /dev/md0</code></pre><h2 id="删除磁盘"><a href="#删除磁盘" class="headerlink" title="删除磁盘"></a>删除磁盘</h2><h3 id="将磁盘标记为失效"><a href="#将磁盘标记为失效" class="headerlink" title="将磁盘标记为失效"></a>将磁盘标记为失效</h3><pre><code>mdadm --fail /dev/md0 /dev/sdc</code></pre><h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="删除磁盘-1"><a href="#删除磁盘-1" class="headerlink" title="删除磁盘"></a>删除磁盘</h3><pre><code>mdadm --remove /dev/md0 /dev/sdc</code></pre><h3 id="查看阵列-2"><a href="#查看阵列-2" class="headerlink" title="查看阵列"></a>查看阵列</h3><pre><code>mdadm–D /dev/md0</code></pre>
+mdadm–C /设备名称 –级别 –数量 –热备盘数量  / 盘的位置</code></pre><h3 id="查看阵列"><a href="#查看阵列" class="headerlink" title="查看阵列"></a>查看阵列</h3><pre><code>mdadm -D /dev/md0</code></pre><h3 id="对-RAID5-进行分区"><a href="#对-RAID5-进行分区" class="headerlink" title="对 RAID5 进行分区"></a>对 RAID5 进行分区</h3><pre><code>fdisk /dev/md0</code></pre><h3 id="格式化磁盘"><a href="#格式化磁盘" class="headerlink" title="格式化磁盘"></a>格式化磁盘</h3><pre><code>mkfs.ext4 /dev/md0</code></pre><h3 id="创建挂载点"><a href="#创建挂载点" class="headerlink" title="创建挂载点"></a>创建挂载点</h3><pre><code>mkdir /mnt/raid</code></pre><h3 id="挂在RAID-5"><a href="#挂在RAID-5" class="headerlink" title="挂在RAID 5"></a>挂在RAID 5</h3><pre><code>mount /dev/md0 /mnt/raid</code></pre><h2 id="添加磁盘"><a href="#添加磁盘" class="headerlink" title="添加磁盘"></a>添加磁盘</h2><h3 id="向RAID-添加磁盘"><a href="#向RAID-添加磁盘" class="headerlink" title="向RAID 添加磁盘"></a>向RAID 添加磁盘</h3><pre><code>mdadm --manage /dev/md0 --add /dev/sdf</code></pre><h3 id="拓展磁盘"><a href="#拓展磁盘" class="headerlink" title="拓展磁盘"></a>拓展磁盘</h3><pre><code>mdadm --grow --raid-devices=5    #全部盘数 /dev/md0</code></pre><h3 id="查看阵列-1"><a href="#查看阵列-1" class="headerlink" title="查看阵列"></a>查看阵列</h3><pre><code>Mdadm–D /dev/md0</code></pre><h2 id="删除磁盘"><a href="#删除磁盘" class="headerlink" title="删除磁盘"></a>删除磁盘</h2><h3 id="将磁盘标记为失效"><a href="#将磁盘标记为失效" class="headerlink" title="将磁盘标记为失效"></a>将磁盘标记为失效</h3><pre><code>mdadm --fail /dev/md0 /dev/sdc</code></pre><h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="删除磁盘-1"><a href="#删除磁盘-1" class="headerlink" title="删除磁盘"></a>删除磁盘</h3><pre><code>mdadm --remove /dev/md0 /dev/sdc</code></pre><h3 id="查看阵列-2"><a href="#查看阵列-2" class="headerlink" title="查看阵列"></a>查看阵列</h3><pre><code>mdadm–D /dev/md0</code></pre><p><strong>详细操作教程可参考我在b站录制的视频<a href="https://www.bilibili.com/video/BV16J411T7DD" target="_blank" rel="noopener">Debian 10 磁盘阵列 RAID5</a></strong></p>
+
             </div>
             <hr/>
 
@@ -765,7 +766,7 @@ mdadm–C /设备名称 –级别 –数量 –热备盘数量  / 盘的位置</
 
 
 安装邮件服务以及依赖包apt insatll -y sendmail
-apt install -y mailutils修改配置，允许sendmail连接到任何服务器vim /etc/
+apt install -y mailutils修改主机名称vim /etc/hostname快速生效hostn
                         
                     </div>
                     <div class="publish-info">

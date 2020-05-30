@@ -442,7 +442,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    274
+                    307
                 </div>
                 
 
@@ -474,6 +474,7 @@ ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 &lt;/VirtualHost&gt;</code></pre><p><strong><em>如果觉得麻烦 可以复制  <code>/etc/apche2/sites-available/000-default.comf</code> 中的配置文件作为模板</em></strong></p>
 <h3 id="关闭默认站点"><a href="#关闭默认站点" class="headerlink" title="关闭默认站点"></a>关闭默认站点</h3><pre><code>a2ensite 000-default.conf</code></pre><h3 id="启动自己站点"><a href="#启动自己站点" class="headerlink" title="启动自己站点"></a>启动自己站点</h3><pre><code>a2ensite fuchen.com.conf</code></pre><h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><pre><code>systemctl restart apache2</code></pre><p><strong>本文章结合 <a href="https://fuchenchenle.cn/2020/05/28/DNS/" target="_blank" rel="noopener">Debian10 搭建 DNS</a> 使用</strong></p>
+<p><strong>详细操作步骤可参考我在b站录制的视频 <a href="https://www.bilibili.com/video/BV1zJ411w7CF" target="_blank" rel="noopener">Debian 10 搭建 Apache2 Web 并配置虚拟主机文件</a></strong></p>
 
             </div>
             <hr/>

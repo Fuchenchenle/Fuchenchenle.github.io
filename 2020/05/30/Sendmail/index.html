@@ -442,7 +442,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    147
+                    168
                 </div>
                 
 
@@ -459,10 +459,11 @@
 
 
 <h3 id="安装邮件服务以及依赖包"><a href="#安装邮件服务以及依赖包" class="headerlink" title="安装邮件服务以及依赖包"></a>安装邮件服务以及依赖包</h3><pre><code>apt insatll -y sendmail
-apt install -y mailutils</code></pre><h3 id="修改配置，允许sendmail连接到任何服务器"><a href="#修改配置，允许sendmail连接到任何服务器" class="headerlink" title="修改配置，允许sendmail连接到任何服务器"></a>修改配置，允许sendmail连接到任何服务器</h3><pre><code>vim /etc/mail/sendmail.mc
+apt install -y mailutils</code></pre><h3 id="修改主机名称"><a href="#修改主机名称" class="headerlink" title="修改主机名称"></a>修改主机名称</h3><pre><code>vim /etc/hostname</code></pre><h3 id="快速生效"><a href="#快速生效" class="headerlink" title="快速生效"></a>快速生效</h3><pre><code>hostname –f /etc/hostname</code></pre><h3 id="把需要发送的邮件的域放进access"><a href="#把需要发送的邮件的域放进access" class="headerlink" title="把需要发送的邮件的域放进access"></a>把需要发送的邮件的域放进access</h3><pre><code>vim access
+qq.com  RELAY</code></pre><h3 id="修改配置，允许sendmail连接到任何服务器"><a href="#修改配置，允许sendmail连接到任何服务器" class="headerlink" title="修改配置，允许sendmail连接到任何服务器"></a>修改配置，允许sendmail连接到任何服务器</h3><pre><code>vim /etc/mail/sendmail.mc
 将 57 行的 127.0.0.1 改为 0.0.0.0</code></pre><h3 id="设置发送邮件附件的大小"><a href="#设置发送邮件附件的大小" class="headerlink" title="设置发送邮件附件的大小"></a>设置发送邮件附件的大小</h3><pre><code>vim /etc/mail/sendmail.cf
-修改 186行 maximum message size O MaxMessageSize=0  #0默认无线大</code></pre><h4 id="生成新的配置文件"><a href="#生成新的配置文件" class="headerlink" title="生成新的配置文件"></a>生成新的配置文件</h4><pre><code>m4 /etc/mail/sendmail.mc &gt; /etc/mail/sendmail.cf</code></pre><h3 id="发送邮件"><a href="#发送邮件" class="headerlink" title="发送邮件"></a>发送邮件</h3><pre><code>mail -s &#39;test&#39; | mail -s &#39;123&#39; 490597217@qq.com
-mail -s &#39;标题&#39; | mail -s &#39;内容&#39; 邮箱地址</code></pre>
+修改 186行 maximum message size O MaxMessageSize=0  #0默认无线大</code></pre><h4 id="生成新的配置文件"><a href="#生成新的配置文件" class="headerlink" title="生成新的配置文件"></a>生成新的配置文件</h4><pre><code>m4 /etc/mail/sendmail.mc &gt; /etc/mail/sendmail.cf</code></pre><h3 id="发送邮件"><a href="#发送邮件" class="headerlink" title="发送邮件"></a>发送邮件</h3><pre><code>echo &#39;test&#39; | mail –s &#39;123456&#39;  *****@qq.com
+    (标题)         （内容）     （邮箱地址）</code></pre>
             </div>
             <hr/>
 

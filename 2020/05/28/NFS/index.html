@@ -442,7 +442,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    117
+                    138
                 </div>
                 
 
@@ -459,7 +459,8 @@
 <h3 id="创建共享文件夹"><a href="#创建共享文件夹" class="headerlink" title="创建共享文件夹"></a>创建共享文件夹</h3><pre><code>mkdir /home/share</code></pre><h3 id="创建挂载路径"><a href="#创建挂载路径" class="headerlink" title="创建挂载路径"></a>创建挂载路径</h3><pre><code>mkdir /home/test</code></pre><h3 id="安装NFS服务"><a href="#安装NFS服务" class="headerlink" title="安装NFS服务"></a>安装NFS服务</h3><pre><code>apt –get install nfs-kernel-server –y</code></pre><h3 id="打开编辑文件，写入挂载配置"><a href="#打开编辑文件，写入挂载配置" class="headerlink" title="打开编辑文件，写入挂载配置"></a>打开编辑文件，写入挂载配置</h3><pre><code>Nano /etc/exports
 
  /home/share 172.168.70.176(rw,sync,no_root_squash)
- (文件路径)  （服务器ip）  (可读写，数据同步写入硬盘)</code></pre><h3 id="开启服务"><a href="#开启服务" class="headerlink" title="开启服务"></a>开启服务</h3><pre><code>/etc/init.d/nfs-kernel-server restart </code></pre><h3 id="挂载服务"><a href="#挂载服务" class="headerlink" title="挂载服务"></a>挂载服务</h3><pre><code>mount –t nfs 172.168.70.176:/home/share /home/test</code></pre><h3 id="查看挂载"><a href="#查看挂载" class="headerlink" title="查看挂载"></a>查看挂载</h3><pre><code>df -h</code></pre>
+ (文件路径)  （服务器ip）  (可读写，数据同步写入硬盘)</code></pre><h3 id="开启服务"><a href="#开启服务" class="headerlink" title="开启服务"></a>开启服务</h3><pre><code>/etc/init.d/nfs-kernel-server restart </code></pre><h3 id="挂载服务"><a href="#挂载服务" class="headerlink" title="挂载服务"></a>挂载服务</h3><pre><code>mount –t nfs 172.168.70.176:/home/share /home/test</code></pre><h3 id="查看挂载"><a href="#查看挂载" class="headerlink" title="查看挂载"></a>查看挂载</h3><pre><code>df -h</code></pre><p><strong>详细操作教程可参考我在b站录制的视频<a href="https://www.bilibili.com/video/BV1gJ411w7nd" target="_blank" rel="noopener">Debian 10 搭建 NFS</a></strong></p>
+
             </div>
             <hr/>
 
