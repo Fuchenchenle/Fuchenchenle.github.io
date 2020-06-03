@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>BUUCTF-MISC</title>
+      <link href="/2020/06/03/BUUCTF-MISC/"/>
+      <url>/2020/06/03/BUUCTF-MISC/</url>
+      
+        <content type="html"><![CDATA[<center>别问，问就是菜鸡</center><p>平台链接：<a href="https://buuoj.cn/" target="_blank" rel="noopener">BUUCTF</a></p><h3 id="金三胖"><a href="#金三胖" class="headerlink" title="金三胖"></a>金三胖</h3><p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/aaa.gif?Expires=1591171196&OSSAccessKeyId=TMP.3KfgREUAhULH3fWfKMM2EdSRXGmCoGL31MDc3QWqtAdKRWpbSn2i3cGLVoxLYdnBwG1NWTyyHxgmjqSWjYSKfR5sgTPGmN&Signature=dmpRPJvynJmrW73NbKBnyv72Ov8%3D" alt=""></p><p>打开压缩包是一个gif，拖入ps查看图层得出flag</p><p><code>flag{he11ohongke}</code></p><h3 id="二维码"><a href="#二维码" class="headerlink" title="二维码"></a>二维码</h3><p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/QR_code.png?Expires=1591171228&OSSAccessKeyId=TMP.3KfgREUAhULH3fWfKMM2EdSRXGmCoGL31MDc3QWqtAdKRWpbSn2i3cGLVoxLYdnBwG1NWTyyHxgmjqSWjYSKfR5sgTPGmN&Signature=IrgS7mDkBfaxIv9s%2FIcXWC%2BCp1E%3D" alt=""></p><p>扫描后显示secret is here ，我们直接将图片拖到kali利用binwalk -e 命令分离图片得出一个压缩包</p><p>txt告诉我们密码是四位纯数字，用fcrackzip 破解得出密码7639，输入后得出flag</p><p><code>CTF{vjpw_wnoei}</code></p><h3 id="N种方法解决"><a href="#N种方法解决" class="headerlink" title="N种方法解决"></a>N种方法解决</h3><p>给出一个无法打开的exe程序，拖进winhex发现有base64</p><p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/20200603154445.png?Expires=1591171258&OSSAccessKeyId=TMP.3KfgREUAhULH3fWfKMM2EdSRXGmCoGL31MDc3QWqtAdKRWpbSn2i3cGLVoxLYdnBwG1NWTyyHxgmjqSWjYSKfR5sgTPGmN&Signature=fZFZ01kGkui9P6sz9ARHIQb95HM%3D" alt=""></p><p>用base64转换图片工具显示二维码，扫描后得出flag</p><p><code>KEY{dca57f966e4e4e31fd5b15417da63269}</code></p><h3 id="大白"><a href="#大白" class="headerlink" title="大白"></a>大白</h3><p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/dabai.png?Expires=1591171040&OSSAccessKeyId=TMP.3KfgREUAhULH3fWfKMM2EdSRXGmCoGL31MDc3QWqtAdKRWpbSn2i3cGLVoxLYdnBwG1NWTyyHxgmjqSWjYSKfR5sgTPGmN&Signature=%2BxTUu5u%2BVkZ29Fe9cNeBkz3wYfQ%3D" alt=""></p><p>拖进winhex修改图片高度</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Misc </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Debian 10 搭建 RAID 5</title>
       <link href="/2020/05/30/RAID-5/"/>
       <url>/2020/05/30/RAID-5/</url>

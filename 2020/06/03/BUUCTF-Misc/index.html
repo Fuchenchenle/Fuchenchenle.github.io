@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Debian 10 搭建 RAID 5, Fuchenchenle">
+    <meta name="keywords" content="BUUCTF-MISC, Fuchenchenle">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Debian 10 搭建 RAID 5 | Fuchenchenle</title>
+    <title>BUUCTF-MISC | Fuchenchenle</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/img/1/Debian10.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Debian 10 搭建 RAID 5</h1>
+                    <h1 class="description center-align post-title">BUUCTF-MISC</h1>
                 </div>
             </div>
         </div>
@@ -408,8 +408,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/linux/">
-                                <span class="chip bg-color">linux</span>
+                            <a href="/tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                     </div>
@@ -420,8 +420,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Debian/" class="post-category">
-                                Debian
+                            <a href="/categories/Misc/" class="post-category">
+                                Misc
                             </a>
                         
                     </div>
@@ -433,7 +433,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-30
+                    2020-06-03
                 </div>
                 
 
@@ -442,7 +442,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    299
+                    157
                 </div>
                 
 
@@ -454,9 +454,24 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="基于-网络系统管理-RAID5-基础搭建教程"><a href="#基于-网络系统管理-RAID5-基础搭建教程" class="headerlink" title="基于 网络系统管理 RAID5 基础搭建教程"></a><center>基于 网络系统管理 RAID5 基础搭建教程</center></h2><p>RAID 5 是一种存储性能、数据安全和存储成本兼顾的存储解决方案。 RAID 5可以理解为是RAID 0和RAID 1的折中方案。RAID 5可以为系统提供数据安全保障，但保障程度要比Mirror低而磁盘空间利用率要比Mirror高。</p>
-<h5 id="题目要求：添加硬盘组成RAID5-模拟硬盘故障删除或增添硬盘"><a href="#题目要求：添加硬盘组成RAID5-模拟硬盘故障删除或增添硬盘" class="headerlink" title="题目要求：添加硬盘组成RAID5,模拟硬盘故障删除或增添硬盘"></a>题目要求：添加硬盘组成RAID5,模拟硬盘故障删除或增添硬盘</h5><h3 id="安装mdadm服务"><a href="#安装mdadm服务" class="headerlink" title="安装mdadm服务"></a>安装mdadm服务</h3><pre><code>apt install -y mdadm</code></pre><h3 id="查看磁盘"><a href="#查看磁盘" class="headerlink" title="查看磁盘"></a>查看磁盘</h3><pre><code>lsblk -o NAME,SIZE,FSTYPE,TYPE</code></pre><h3 id="创建RAID5"><a href="#创建RAID5" class="headerlink" title="创建RAID5"></a>创建RAID5</h3><pre><code>mdadm -C /dev/md0 -l5 -n4 –x1 /dev/sd{b,c,d,e}
-mdadm–C /设备名称 –级别 –数量 –热备盘数量  / 盘的位置</code></pre><h3 id="查看阵列"><a href="#查看阵列" class="headerlink" title="查看阵列"></a>查看阵列</h3><pre><code>mdadm -D /dev/md0</code></pre><h3 id="对-RAID5-进行分区"><a href="#对-RAID5-进行分区" class="headerlink" title="对 RAID5 进行分区"></a>对 RAID5 进行分区</h3><pre><code>fdisk /dev/md0</code></pre><h3 id="格式化磁盘"><a href="#格式化磁盘" class="headerlink" title="格式化磁盘"></a>格式化磁盘</h3><pre><code>mkfs.ext4 /dev/md0</code></pre><h3 id="创建挂载点"><a href="#创建挂载点" class="headerlink" title="创建挂载点"></a>创建挂载点</h3><pre><code>mkdir /mnt/raid</code></pre><h3 id="挂在RAID-5"><a href="#挂在RAID-5" class="headerlink" title="挂在RAID 5"></a>挂在RAID 5</h3><pre><code>mount /dev/md0 /mnt/raid</code></pre><h2 id="添加磁盘"><a href="#添加磁盘" class="headerlink" title="添加磁盘"></a>添加磁盘</h2><h3 id="向RAID-添加磁盘"><a href="#向RAID-添加磁盘" class="headerlink" title="向RAID 添加磁盘"></a>向RAID 添加磁盘</h3><pre><code>mdadm --manage /dev/md0 --add /dev/sdf</code></pre><h3 id="拓展磁盘"><a href="#拓展磁盘" class="headerlink" title="拓展磁盘"></a>拓展磁盘</h3><pre><code>mdadm --grow --raid-devices=5    #全部盘数 /dev/md0</code></pre><h3 id="查看阵列-1"><a href="#查看阵列-1" class="headerlink" title="查看阵列"></a>查看阵列</h3><pre><code>Mdadm–D /dev/md0</code></pre><h2 id="删除磁盘"><a href="#删除磁盘" class="headerlink" title="删除磁盘"></a>删除磁盘</h2><h3 id="将磁盘标记为失效"><a href="#将磁盘标记为失效" class="headerlink" title="将磁盘标记为失效"></a>将磁盘标记为失效</h3><pre><code>mdadm --fail /dev/md0 /dev/sdc</code></pre><h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="删除磁盘-1"><a href="#删除磁盘-1" class="headerlink" title="删除磁盘"></a>删除磁盘</h3><pre><code>mdadm --remove /dev/md0 /dev/sdc</code></pre><h3 id="查看阵列-2"><a href="#查看阵列-2" class="headerlink" title="查看阵列"></a>查看阵列</h3><pre><code>mdadm–D /dev/md0</code></pre><p><strong>详细操作教程可参考我在b站录制的视频<a href="https://www.bilibili.com/video/BV16J411T7DD" target="_blank" rel="noopener">Debian 10 磁盘阵列 RAID5</a></strong></p>
+                <center>别问，问就是菜鸡</center>
+
+
+
+<p>平台链接：<a href="https://buuoj.cn/" target="_blank" rel="noopener">BUUCTF</a></p>
+<h3 id="金三胖"><a href="#金三胖" class="headerlink" title="金三胖"></a>金三胖</h3><p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/aaa.gif?Expires=1591171196&OSSAccessKeyId=TMP.3KfgREUAhULH3fWfKMM2EdSRXGmCoGL31MDc3QWqtAdKRWpbSn2i3cGLVoxLYdnBwG1NWTyyHxgmjqSWjYSKfR5sgTPGmN&Signature=dmpRPJvynJmrW73NbKBnyv72Ov8%3D" alt=""></p>
+<p>打开压缩包是一个gif，拖入ps查看图层得出flag</p>
+<p><code>flag{he11ohongke}</code></p>
+<h3 id="二维码"><a href="#二维码" class="headerlink" title="二维码"></a>二维码</h3><p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/QR_code.png?Expires=1591171228&OSSAccessKeyId=TMP.3KfgREUAhULH3fWfKMM2EdSRXGmCoGL31MDc3QWqtAdKRWpbSn2i3cGLVoxLYdnBwG1NWTyyHxgmjqSWjYSKfR5sgTPGmN&Signature=IrgS7mDkBfaxIv9s%2FIcXWC%2BCp1E%3D" alt=""></p>
+<p>扫描后显示secret is here ，我们直接将图片拖到kali利用binwalk -e 命令分离图片得出一个压缩包</p>
+<p>txt告诉我们密码是四位纯数字，用fcrackzip 破解得出密码7639，输入后得出flag</p>
+<p><code>CTF{vjpw_wnoei}</code></p>
+<h3 id="N种方法解决"><a href="#N种方法解决" class="headerlink" title="N种方法解决"></a>N种方法解决</h3><p>给出一个无法打开的exe程序，拖进winhex发现有base64</p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/20200603154445.png?Expires=1591171258&OSSAccessKeyId=TMP.3KfgREUAhULH3fWfKMM2EdSRXGmCoGL31MDc3QWqtAdKRWpbSn2i3cGLVoxLYdnBwG1NWTyyHxgmjqSWjYSKfR5sgTPGmN&Signature=fZFZ01kGkui9P6sz9ARHIQb95HM%3D" alt=""></p>
+<p>用base64转换图片工具显示二维码，扫描后得出flag</p>
+<p><code>KEY{dca57f966e4e4e31fd5b15417da63269}</code></p>
+<h3 id="大白"><a href="#大白" class="headerlink" title="大白"></a>大白</h3><p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/dabai.png?Expires=1591171040&OSSAccessKeyId=TMP.3KfgREUAhULH3fWfKMM2EdSRXGmCoGL31MDc3QWqtAdKRWpbSn2i3cGLVoxLYdnBwG1NWTyyHxgmjqSWjYSKfR5sgTPGmN&Signature=%2BxTUu5u%2BVkZ29Fe9cNeBkz3wYfQ%3D" alt=""></p>
+<p>拖进winhex修改图片高度</p>
 
             </div>
             <hr/>
@@ -472,7 +487,7 @@ mdadm–C /设备名称 –级别 –数量 –热备盘数量  / 盘的位置</
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">fuchenchenle</a>
+                    <a href="/about" rel="external nofollow noreferrer">Fuchenchenle</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -482,7 +497,7 @@ mdadm–C /设备名称 –级别 –数量 –热备盘数量  / 盘的位置</
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/05/30/RAID-5/">http://yoursite.com/2020/05/30/RAID-5/</a>
+                    <a href="http://yoursite.com/2020/06/03/BUUCTF-MISC/">http://yoursite.com/2020/06/03/BUUCTF-MISC/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -495,7 +510,7 @@ mdadm–C /设备名称 –级别 –数量 –热备盘数量  / 盘的位置</
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">fuchenchenle</a>
+                    <a href="/about" target="_blank">Fuchenchenle</a>
                     !
                 </span>
             </div>
@@ -520,8 +535,8 @@ mdadm–C /设备名称 –级别 –数量 –热备盘数量  / 盘的位置</
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/linux/">
-                                    <span class="chip bg-color">linux</span>
+                                <a href="/tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                         </div>
@@ -689,9 +704,10 @@ mdadm–C /设备名称 –级别 –数量 –热备盘数量  / 盘的位置</
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/06/03/BUUCTF-MISC/">
                     <div class="card-image">
@@ -718,9 +734,9 @@ flag{he11ohongke}
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -733,6 +749,7 @@ flag{he11ohongke}
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -751,19 +768,18 @@ flag{he11ohongke}
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/30/Sendmail/">
+                <a href="/2020/05/30/RAID-5/">
                     <div class="card-image">
                         
-                        <img src="/img/1/Debian10.png" class="responsive-img" alt="Debian 10 搭建 Sendmail">
+                        <img src="/img/1/Debian10.png" class="responsive-img" alt="Debian 10 搭建 RAID 5">
                         
-                        <span class="card-title">Debian 10 搭建 Sendmail</span>
+                        <span class="card-title">Debian 10 搭建 RAID 5</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于 网络系统管理 Sendmail 邮件服务器基础搭建教程题目要求：安装sendmail服务器并且发送 邮件安装邮件服务以及依赖包apt insatll -y sendmail
-apt install -y mailutils修改主机名称
+                            基于 网络系统管理 RAID5 基础搭建教程RAID 5 是一种存储性能、数据安全和存储成本兼顾的存储解决方案。 RAID 5可以理解为是RAID 0和RAID 1的折中方案。RAID 5可以为系统提供数据安全保障，但保障程度要比Mirro
                         
                     </div>
                     <div class="publish-info">
