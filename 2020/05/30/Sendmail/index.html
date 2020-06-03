@@ -442,7 +442,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    172
+                    193
                 </div>
                 
 
@@ -454,11 +454,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <center>基于 网络系统管理 Sendmail 基础搭建教程</center>
-
-
-
-<h3 id="安装邮件服务以及依赖包"><a href="#安装邮件服务以及依赖包" class="headerlink" title="安装邮件服务以及依赖包"></a>安装邮件服务以及依赖包</h3><pre><code>apt insatll -y sendmail
+                <h2 id="基于-网络系统管理-Sendmail-邮件服务器基础搭建教程"><a href="#基于-网络系统管理-Sendmail-邮件服务器基础搭建教程" class="headerlink" title="基于 网络系统管理 Sendmail 邮件服务器基础搭建教程"></a><center>基于 网络系统管理 Sendmail 邮件服务器基础搭建教程</center></h2><h5 id="题目要求：安装sendmail服务器并且发送-邮件"><a href="#题目要求：安装sendmail服务器并且发送-邮件" class="headerlink" title="题目要求：安装sendmail服务器并且发送 邮件"></a>题目要求：安装sendmail服务器并且发送 邮件</h5><h3 id="安装邮件服务以及依赖包"><a href="#安装邮件服务以及依赖包" class="headerlink" title="安装邮件服务以及依赖包"></a>安装邮件服务以及依赖包</h3><pre><code>apt insatll -y sendmail
 apt install -y mailutils</code></pre><h3 id="修改主机名称"><a href="#修改主机名称" class="headerlink" title="修改主机名称"></a>修改主机名称</h3><pre><code>vim /etc/hostname</code></pre><h3 id="快速生效"><a href="#快速生效" class="headerlink" title="快速生效"></a>快速生效</h3><pre><code>hostname –f /etc/hostname</code></pre><h3 id="把需要发送的邮件的域放进access"><a href="#把需要发送的邮件的域放进access" class="headerlink" title="把需要发送的邮件的域放进access"></a>把需要发送的邮件的域放进access</h3><pre><code>vim /etc/mail/access
 qq.com  RELAY</code></pre><h3 id="修改配置，允许sendmail连接到任何服务器"><a href="#修改配置，允许sendmail连接到任何服务器" class="headerlink" title="修改配置，允许sendmail连接到任何服务器"></a>修改配置，允许sendmail连接到任何服务器</h3><pre><code>vim /etc/mail/sendmail.mc
 将 57 行的 127.0.0.1 改为 0.0.0.0</code></pre><h3 id="设置发送邮件附件的大小"><a href="#设置发送邮件附件的大小" class="headerlink" title="设置发送邮件附件的大小"></a>设置发送邮件附件的大小</h3><pre><code>vim /etc/mail/sendmail.cf
@@ -710,11 +706,7 @@ qq.com  RELAY</code></pre><h3 id="修改配置，允许sendmail连接到任何�
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于 网络系统管理 RAID5 基础搭建教程
-
-
-
-安装mdadm服务apt install -y mdadm查看磁盘lsblk -o NAME,SIZE,FSTYPE,TYPE创建RAID5mdadm -C /dev/md0 -l5 -n
+                            基于 网络系统管理 RAID5 基础搭建教程RAID 5 是一种存储性能、数据安全和存储成本兼顾的存储解决方案。 RAID 5可以理解为是RAID 0和RAID 1的折中方案。RAID 5可以为系统提供数据安全保障，但保障程度要比Mirro
                         
                     </div>
                     <div class="publish-info">
@@ -762,9 +754,8 @@ qq.com  RELAY</code></pre><h3 id="修改配置，允许sendmail连接到任何�
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于 网络系统管理 LAMP基础搭建教程
-
-安装Apache2apt install -y apche2安装phpapt install -y php libapache2-mod-php php-mysql创建php脚本vim /var/
+                            基于 网络系统管理 LAMP基础搭建教程LAMP是指由 Linux,Apache,Mysql,php 组成的动态可运行的网站或服务器的缩写
+题目要求：安装apache2,maridb,php，搭建phpadmin网站并且能够访问安装Apac
                         
                     </div>
                     <div class="publish-info">
@@ -967,60 +958,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="song"
-                   id="473403158"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='one'
-                   order='list'
-                   preload='all'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
-    
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
@@ -1160,6 +1097,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"rect":"opacity:0.5","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 
 </html>

@@ -442,7 +442,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    361
+                    442
                 </div>
                 
 
@@ -454,9 +454,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                 <center>基于 网络系统管理 DNS解析基础教程</center>
-
-<h3 id="安装-bind-以及dns解析工具"><a href="#安装-bind-以及dns解析工具" class="headerlink" title="安装 bind 以及dns解析工具"></a>安装 bind 以及dns解析工具</h3><pre><code>apt install -y bind9
+                <h2 id="基于-网络系统管理-DNS解析基础教程"><a href="#基于-网络系统管理-DNS解析基础教程" class="headerlink" title="基于 网络系统管理 DNS解析基础教程"></a><center>基于 网络系统管理 DNS解析基础教程</center></h2><p>域名系统（服务）协议（DNS）是一种分布式网络目录服务，主要用于域名与 IP 地址的相互转换，以及控制因特网的电子邮件的发送。</p>
+<h5 id="题目要求：正确配置DNS正反向解析，并且能够解析apache2与sendmail服务器的域名-fuchen-com"><a href="#题目要求：正确配置DNS正反向解析，并且能够解析apache2与sendmail服务器的域名-fuchen-com" class="headerlink" title="题目要求：正确配置DNS正反向解析，并且能够解析apache2与sendmail服务器的域名(fuchen.com)"></a>题目要求：正确配置DNS正反向解析，并且能够解析apache2与sendmail服务器的域名(fuchen.com)</h5><h3 id="安装-bind-以及dns解析工具"><a href="#安装-bind-以及dns解析工具" class="headerlink" title="安装 bind 以及dns解析工具"></a>安装 bind 以及dns解析工具</h3><pre><code>apt install -y bind9
 
 apt install -y dnsutils</code></pre><h3 id="修改DNS配置"><a href="#修改DNS配置" class="headerlink" title="修改DNS配置"></a>修改DNS配置</h3><pre><code>vim /etc/resolv.conf</code></pre><h3 id="将DNS指向需要解析的域名"><a href="#将DNS指向需要解析的域名" class="headerlink" title="将DNS指向需要解析的域名"></a>将DNS指向需要解析的域名</h3><pre><code>search fuchen.com    #需要解析的域名
 
@@ -754,9 +753,8 @@ nslookup www.fuchen.com</code></pre><p>本文章结合 <a href="https://fuchench
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于 网络系统管理 NFS基础搭建教程
-
-创建共享文件夹mkdir /home/share创建挂载路径mkdir /home/test安装NFS服务apt –get install nfs-kernel-server –y打开编辑文件，写入
+                            基于 网络系统管理 NFS基础搭建教程网络文件系统是FreeBSD支持的文件系统中的一种， 也被称为 NFS。 NFS允许一个系统在网络上与它人共享目录和文件。通过使用NFS，用户和程序可以象访问本地文件 一样访问其他计算机文件
+题目要求：
                         
                     </div>
                     <div class="publish-info">
@@ -804,9 +802,7 @@ nslookup www.fuchen.com</code></pre><p>本文章结合 <a href="https://fuchench
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于 网络系统管理 Samba搭建的基础教程
-
-安装Samba服务apt install samba -y 创建用户useradd user将用户加入samba组smbpasswd -a user 创建一个共享文件mkdir /home/s
+                            基于 网络系统管理 Samba 搭建的基础教程​         Samba是在Linux和UNIX系统上实现SMB协议的一个免费软件，由服务器及客户端程序构成。SMB（Server Messages Block，信息服务块）是一种在局域网
                         
                     </div>
                     <div class="publish-info">
@@ -1009,60 +1005,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="song"
-                   id="473403158"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='one'
-                   order='list'
-                   preload='all'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
-    
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
@@ -1202,6 +1144,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"rect":"opacity:0.5","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 
 </html>

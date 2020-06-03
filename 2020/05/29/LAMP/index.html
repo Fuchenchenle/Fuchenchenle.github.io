@@ -442,7 +442,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    503
+                    547
                 </div>
                 
 
@@ -454,9 +454,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <center>基于 网络系统管理 LAMP基础搭建教程</center>
-
-<h3 id="安装Apache2"><a href="#安装Apache2" class="headerlink" title="安装Apache2"></a>安装Apache2</h3><pre><code>apt install -y apche2</code></pre><h3 id="安装php"><a href="#安装php" class="headerlink" title="安装php"></a>安装php</h3><pre><code>apt install -y php libapache2-mod-php php-mysql</code></pre><h3 id="创建php脚本"><a href="#创建php脚本" class="headerlink" title="创建php脚本"></a>创建php脚本</h3><pre><code>vim /var/www/html/info.php</code></pre><h5 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h5><pre><code>&lt;?php phpinfo()；?&gt;</code></pre><p>浏览器输入 <code>ip/info.php</code> 查看版本信息</p>
+                <h2 id="基于-网络系统管理-LAMP基础搭建教程"><a href="#基于-网络系统管理-LAMP基础搭建教程" class="headerlink" title="基于 网络系统管理 LAMP基础搭建教程"></a><center>基于 网络系统管理 LAMP基础搭建教程</center></h2><p>LAMP是指由 Linux,Apache,Mysql,php 组成的动态可运行的网站或服务器的缩写</p>
+<h5 id="题目要求：安装apache2-maridb-php，搭建phpadmin网站并且能够访问"><a href="#题目要求：安装apache2-maridb-php，搭建phpadmin网站并且能够访问" class="headerlink" title="题目要求：安装apache2,maridb,php，搭建phpadmin网站并且能够访问"></a>题目要求：安装apache2,maridb,php，搭建phpadmin网站并且能够访问</h5><h3 id="安装Apache2"><a href="#安装Apache2" class="headerlink" title="安装Apache2"></a>安装Apache2</h3><pre><code>apt install -y apche2</code></pre><h3 id="安装php"><a href="#安装php" class="headerlink" title="安装php"></a>安装php</h3><pre><code>apt install -y php libapache2-mod-php php-mysql</code></pre><h3 id="创建php脚本"><a href="#创建php脚本" class="headerlink" title="创建php脚本"></a>创建php脚本</h3><pre><code>vim /var/www/html/info.php</code></pre><h5 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h5><pre><code>&lt;?php phpinfo()；?&gt;</code></pre><p>浏览器输入 <code>ip/info.php</code> 查看版本信息</p>
 <h3 id="安装maridb"><a href="#安装maridb" class="headerlink" title="安装maridb"></a>安装maridb</h3><pre><code>apt install -y mariadb-server</code></pre><h3 id="运行安全脚本"><a href="#运行安全脚本" class="headerlink" title="运行安全脚本"></a>运行安全脚本</h3><pre><code>mysql sercure installation </code></pre><p>安全脚本具体内容可以参考我在b站 发的视频教程 <a href="https://www.bilibili.com/video/BV1AE411N7rm" target="_blank" rel="noopener">Debian 10 搭建LAMP</a>  4分25秒</p>
 <h3 id="安装phpmyadmin"><a href="#安装phpmyadmin" class="headerlink" title="安装phpmyadmin"></a>安装phpmyadmin</h3><pre><code>从[phpmyadmin官网](https://www.phpmyadmin.net/) 获取链接，使用wget命令下载
 
@@ -760,12 +759,8 @@ Require all denied
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于 网络系统管理 Sendmail 基础搭建教程
-
-
-
-安装邮件服务以及依赖包apt insatll -y sendmail
-apt install -y mailutils修改主机名称vim /etc/hostname快速生效hostn
+                            基于 网络系统管理 Sendmail 邮件服务器基础搭建教程题目要求：安装sendmail服务器并且发送 邮件安装邮件服务以及依赖包apt insatll -y sendmail
+apt install -y mailutils修改主机名称
                         
                     </div>
                     <div class="publish-info">
@@ -813,9 +808,7 @@ apt install -y mailutils修改主机名称vim /etc/hostname快速生效hostn
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于 网络系统管理 Mariadb搭建基础教程
-
-安装数据库root@debian:~# apt install –y mariadb-server以root用户登录数据库root@debian:~# Mysql –u root –p创建一
+                            基于 网络系统管理 Mariadb搭建基础教程MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权许可 MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。在存
                         
                     </div>
                     <div class="publish-info">
@@ -1018,60 +1011,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="song"
-                   id="473403158"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='one'
-                   order='list'
-                   preload='all'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
-    
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
@@ -1211,6 +1150,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"rect":"opacity:0.5","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 
 </html>

@@ -442,7 +442,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    138
+                    241
                 </div>
                 
 
@@ -454,9 +454,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <center>基于 网络系统管理 NFS基础搭建教程</center>
-
-<h3 id="创建共享文件夹"><a href="#创建共享文件夹" class="headerlink" title="创建共享文件夹"></a>创建共享文件夹</h3><pre><code>mkdir /home/share</code></pre><h3 id="创建挂载路径"><a href="#创建挂载路径" class="headerlink" title="创建挂载路径"></a>创建挂载路径</h3><pre><code>mkdir /home/test</code></pre><h3 id="安装NFS服务"><a href="#安装NFS服务" class="headerlink" title="安装NFS服务"></a>安装NFS服务</h3><pre><code>apt –get install nfs-kernel-server –y</code></pre><h3 id="打开编辑文件，写入挂载配置"><a href="#打开编辑文件，写入挂载配置" class="headerlink" title="打开编辑文件，写入挂载配置"></a>打开编辑文件，写入挂载配置</h3><pre><code>Nano /etc/exports
+                <h2 id="基于-网络系统管理-NFS基础搭建教程"><a href="#基于-网络系统管理-NFS基础搭建教程" class="headerlink" title="基于 网络系统管理 NFS基础搭建教程"></a><center>基于 网络系统管理 NFS基础搭建教程</center></h2><p>网络文件系统是FreeBSD支持的文件系统中的一种， 也被称为 <em>NFS</em>。 <em>NFS</em>允许一个系统在网络上与它人共享目录和文件。通过使用<em>NFS</em>，用户和程序可以象访问本地文件 一样访问其他计算机文件</p>
+<h5 id="题目要求：安装NFS服务，创建共享文件夹使其他计算机访问共享文件夹"><a href="#题目要求：安装NFS服务，创建共享文件夹使其他计算机访问共享文件夹" class="headerlink" title="题目要求：安装NFS服务，创建共享文件夹使其他计算机访问共享文件夹"></a>题目要求：安装NFS服务，创建共享文件夹使其他计算机访问共享文件夹</h5><h3 id="创建共享文件夹"><a href="#创建共享文件夹" class="headerlink" title="创建共享文件夹"></a>创建共享文件夹</h3><pre><code>mkdir /home/share</code></pre><h3 id="创建挂载路径"><a href="#创建挂载路径" class="headerlink" title="创建挂载路径"></a>创建挂载路径</h3><pre><code>mkdir /home/test</code></pre><h3 id="安装NFS服务"><a href="#安装NFS服务" class="headerlink" title="安装NFS服务"></a>安装NFS服务</h3><pre><code>apt –get install nfs-kernel-server –y</code></pre><h3 id="打开编辑文件，写入挂载配置"><a href="#打开编辑文件，写入挂载配置" class="headerlink" title="打开编辑文件，写入挂载配置"></a>打开编辑文件，写入挂载配置</h3><pre><code>Nano /etc/exports
 
  /home/share 172.168.70.176(rw,sync,no_root_squash)
  (文件路径)  （服务器ip）  (可读写，数据同步写入硬盘)</code></pre><h3 id="开启服务"><a href="#开启服务" class="headerlink" title="开启服务"></a>开启服务</h3><pre><code>/etc/init.d/nfs-kernel-server restart </code></pre><h3 id="挂载服务"><a href="#挂载服务" class="headerlink" title="挂载服务"></a>挂载服务</h3><pre><code>mount –t nfs 172.168.70.176:/home/share /home/test</code></pre><h3 id="查看挂载"><a href="#查看挂载" class="headerlink" title="查看挂载"></a>查看挂载</h3><pre><code>df -h</code></pre><p><strong>详细操作教程可参考我在b站录制的视频<a href="https://www.bilibili.com/video/BV1gJ411w7nd" target="_blank" rel="noopener">Debian 10 搭建 NFS</a></strong></p>
@@ -707,9 +706,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于 网络系统管理 Apache2虚拟主机基础教程
-
-安装Apache2apt install -y apache2创建网页目录mkdir -p /var/www/fuchen.com/html编辑创建的目录vim /var/www/fuc
+                            基于 网络系统管理 Apache2虚拟主机基础教程Apache是Web服务器软件。它可以运行在几乎所有广泛使用的计算机平台上，由于其跨平台和安全性被广泛使用，是最流行的Web服务器端软件之一。它快速、可靠并且可通过简单的API扩充，将Per
                         
                     </div>
                     <div class="publish-info">
@@ -757,11 +754,8 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                             基于 网络系统管理 DNS解析基础教程
-
-安装 bind 以及dns解析工具apt install -y bind9
-
-apt install -y dnsutils修改DNS配置vim /etc/resolv.conf将DNS指向需要解
+                            基于 网络系统管理 DNS解析基础教程域名系统（服务）协议（DNS）是一种分布式网络目录服务，主要用于域名与 IP 地址的相互转换，以及控制因特网的电子邮件的发送。
+题目要求：正确配置DNS正反向解析，并且能够解析apache2与sendm
                         
                     </div>
                     <div class="publish-info">
@@ -964,60 +958,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="song"
-                   id="473403158"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='one'
-                   order='list'
-                   preload='all'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
-    
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
@@ -1157,6 +1097,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"rect":"opacity:0.5","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 
 </html>

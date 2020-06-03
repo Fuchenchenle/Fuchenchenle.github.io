@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Debian 10 搭建 Mariadb, Fuchenchenle">
+    <meta name="keywords" content="CTF-MISC-隐写, Fuchenchenle">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Debian 10 搭建 Mariadb | Fuchenchenle</title>
+    <title>CTF-MISC-隐写 | Fuchenchenle</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/img/1/Debian10.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Debian 10 搭建 Mariadb</h1>
+                    <h1 class="description center-align post-title">CTF-MISC-隐写</h1>
                 </div>
             </div>
         </div>
@@ -408,8 +408,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/linux/">
-                                <span class="chip bg-color">linux</span>
+                            <a href="/tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                     </div>
@@ -420,8 +420,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Debian/" class="post-category">
-                                Debian
+                            <a href="/categories/Misc/" class="post-category">
+                                Misc
                             </a>
                         
                     </div>
@@ -433,7 +433,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-28
+                    2020-06-02
                 </div>
                 
 
@@ -442,7 +442,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    257
+                    52
                 </div>
                 
 
@@ -454,19 +454,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="基于-网络系统管理-Mariadb搭建基础教程"><a href="#基于-网络系统管理-Mariadb搭建基础教程" class="headerlink" title="基于 网络系统管理 Mariadb搭建基础教程"></a><center>基于 网络系统管理 Mariadb搭建基础教程</center></h2><p>MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权许可 MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。在存储引擎方面，使用XtraDB（英语：XtraDB）来代替MySQL的InnoDB。</p>
-<h5 id="题目要求：安装数据库并新建数据表，备份数据库并且导出"><a href="#题目要求：安装数据库并新建数据表，备份数据库并且导出" class="headerlink" title="题目要求：安装数据库并新建数据表，备份数据库并且导出"></a>题目要求：安装数据库并新建数据表，备份数据库并且导出</h5><h3 id="安装数据库"><a href="#安装数据库" class="headerlink" title="安装数据库"></a>安装数据库</h3><pre><code>root@debian:~# apt install –y mariadb-server</code></pre><h3 id="以root用户登录数据库"><a href="#以root用户登录数据库" class="headerlink" title="以root用户登录数据库"></a>以root用户登录数据库</h3><pre><code>root@debian:~# Mysql –u root –p</code></pre><h3 id="创建一个库-名为staff"><a href="#创建一个库-名为staff" class="headerlink" title="创建一个库  名为staff"></a>创建一个库  名为staff</h3><pre><code>MariaDB [(none)]&gt; Create database staff;</code></pre><h3 id="切换到staff库"><a href="#切换到staff库" class="headerlink" title="切换到staff库"></a>切换到staff库</h3><pre><code>MariaDB [(none)]&gt;use staff;</code></pre><h3 id="添加名字为-user-数据表"><a href="#添加名字为-user-数据表" class="headerlink" title="添加名字为 user 数据表"></a>添加名字为 user 数据表</h3><pre><code>MariaDB [staff]&gt; create table staff.user(</code></pre><pre><code>  -&gt; id int primary key,  #primary key为主键
+                <center>别问，问就是菜鸡的学习笔记</center>
 
-  -&gt; name varchar(10),
-
-  -&gt; birthday datetime,
-
-  -&gt; sex char(8),
-
-  -&gt; password char(128)
-
--&gt; );</code></pre><h3 id="查看数据表"><a href="#查看数据表" class="headerlink" title="查看数据表"></a>查看数据表</h3><pre><code>MariaDB [staff]&gt;desc user；</code></pre><h3 id="导出并且备份数据库"><a href="#导出并且备份数据库" class="headerlink" title="导出并且备份数据库"></a>导出并且备份数据库</h3><pre><code>root@debian:~#Mysqldump staff &gt;staff.sql
-                        数据库  备份名称 </code></pre><p><strong>详细操作步骤可参考我在b站录制的视频[Debian 10 ]</strong></p>
+<p>题目来源<a href="https://buuoj.cn" target="_blank" rel="noopener">BUUCTF</a></p>
+<p>1.金三胖</p>
+<p>一个gif，鑫胖中间闪过什么东西，直接拖到Ps分图层查看得出flag</p>
+<p><code>flag{he11ohongke}</code></p>
+<p>2.二维码</p>
 
             </div>
             <hr/>
@@ -492,7 +486,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/05/28/Mariadb/">http://yoursite.com/2020/05/28/Mariadb/</a>
+                    <a href="http://yoursite.com/2020/06/02/CTF-MISC-%E9%9A%90%E5%86%99/">http://yoursite.com/2020/06/02/CTF-MISC-%E9%9A%90%E5%86%99/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -530,8 +524,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/linux/">
-                                    <span class="chip bg-color">linux</span>
+                                <a href="/tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                         </div>
@@ -699,46 +693,55 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/29/LAMP/">
+                <a href="/2020/06/02/CTF-MISC-%E9%9A%90%E5%86%99/">
                     <div class="card-image">
                         
-                        <img src="/img/1/Debian10.png" class="responsive-img" alt="Debian 10 搭建 LAMP">
                         
-                        <span class="card-title">Debian 10 搭建 LAMP</span>
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="CTF-MISC-隐写">
+                        
+                        <span class="card-title">CTF-MISC-隐写</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于 网络系统管理 LAMP基础搭建教程LAMP是指由 Linux,Apache,Mysql,php 组成的动态可运行的网站或服务器的缩写
-题目要求：安装apache2,maridb,php，搭建phpadmin网站并且能够访问安装Apac
+                            别问，问就是菜鸡的学习笔记
+
+题目来源BUUCTF
+1.金三胖
+一个gif，鑫胖中间闪过什么东西，直接拖到Ps分图层查看得出flag
+flag{he11ohongke}
+2.二维码
+
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Debian/" class="post-category">
-                                    Debian
+                            <a href="/categories/Misc/" class="post-category">
+                                    Misc
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/linux/">
-                        <span class="chip bg-color">linux</span>
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>
@@ -752,30 +755,35 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/28/Apache2/">
+                <a href="/2020/06/02/CTF-MISC-%E5%8E%8B%E7%BC%A9%E5%8C%85%E5%88%86%E6%9E%90/">
                     <div class="card-image">
                         
-                        <img src="/img/1/Debian10.png" class="responsive-img" alt="Debian10 搭建 Apache2">
                         
-                        <span class="card-title">Debian10 搭建 Apache2</span>
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="CTF MISC 压缩包分析">
+                        
+                        <span class="card-title">CTF MISC 压缩包分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于 网络系统管理 Apache2虚拟主机基础教程Apache是Web服务器软件。它可以运行在几乎所有广泛使用的计算机平台上，由于其跨平台和安全性被广泛使用，是最流行的Web服务器端软件之一。它快速、可靠并且可通过简单的API扩充，将Per
+                            别问，问就是菜鸡的学习笔记
+
+题目来源BUUCTF
+1.基础破解
+给出文件是一个rar压缩包，题目提示四位数字纯加密，直接用 AccentRRR 爆破出密码为2563 输入后得flag ZmxhZ3s3MDM1NDMwMGE1MTAwYmE
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-02
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Debian/" class="post-category">
-                                    Debian
+                            <a href="/categories/Misc/" class="post-category">
+                                    Misc
                                 </a>
                             
                             
@@ -785,8 +793,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/linux/">
-                        <span class="chip bg-color">linux</span>
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>
