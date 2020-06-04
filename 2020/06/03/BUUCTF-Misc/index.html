@@ -442,7 +442,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    236
+                    785
                 </div>
                 
 
@@ -459,23 +459,82 @@
 
 
 <p>平台链接：<a href="https://buuoj.cn/" target="_blank" rel="noopener">BUUCTF</a></p>
-<h3 id="金三胖"><a href="#金三胖" class="headerlink" title="金三胖"></a>金三胖</h3><p>打开压缩包是一个gif，拖入ps查看图层得出flag</p>
+<h3 id="金三胖"><a href="#金三胖" class="headerlink" title="金三胖"></a>金三胖</h3><p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/aaa.gif" alt=""></p>
+<p>打开压缩包是一个gif，拖入ps查看图层得出flag</p>
 <p><code>flag{he11ohongke}</code></p>
-<h3 id="二维码"><a href="#二维码" class="headerlink" title="二维码"></a>二维码</h3><p>扫描后显示secret is here ，我们直接将图片拖到kali利用binwalk -e 命令分离图片得出一个压缩包</p>
+<h3 id="二维码"><a href="#二维码" class="headerlink" title="二维码"></a>二维码</h3><p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/QR_code.png" alt=""></p>
+<p>扫描后显示secret is here ，我们直接将图片拖到kali利用<code>binwalk -e</code>命令分离图片得出一个压缩包</p>
 <p>txt告诉我们密码是四位纯数字，用fcrackzip 破解得出密码7639，输入后得出flag</p>
 <p><code>CTF{vjpw_wnoei}</code></p>
 <h3 id="N种方法解决"><a href="#N种方法解决" class="headerlink" title="N种方法解决"></a>N种方法解决</h3><p>给出一个无法打开的exe程序，拖进winhex发现有base64</p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604085430.png" alt=""></p>
 <p>用base64转换图片工具显示二维码，扫描后得出flag</p>
 <p><code>KEY{dca57f966e4e4e31fd5b15417da63269}</code></p>
 <h3 id="大白"><a href="#大白" class="headerlink" title="大白"></a>大白</h3><p>拖进winhex修改图片高度得出flag</p>
 <p><code>flag{He1l0_d4_ba1}</code></p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604085430.png" alt=""></p>
 <h3 id="基础破解"><a href="#基础破解" class="headerlink" title="基础破解"></a>基础破解</h3><p>题目提示四位纯数字加密压缩包，用 AccentRPR 暴力破解得出密码为 2563，输入后出flag </p>
 <p><code>ZmxhZ3s3MDM1NDMwMGE1MTAwYmE3ODA2ODgwNTY2MWI5M2E1Y30=</code></p>
 <h3 id="你竟敢赶我走"><a href="#你竟敢赶我走" class="headerlink" title="你竟敢赶我走"></a>你竟敢赶我走</h3><p>拖入winhex 后ctrl＋f 直接搜flag 出</p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604085921.png" alt=""></p>
 <p><code>flag{stego_is_s0_bor1ing}</code></p>
 <h3 id="乌镇峰会种图"><a href="#乌镇峰会种图" class="headerlink" title="乌镇峰会种图"></a>乌镇峰会种图</h3><p>拖入winhex 后ctrl＋f 直接搜flag 出</p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604090058.png" alt=""></p>
 <p><code>flag{97314e7864a8f62627b26f3f998c37f1}</code></p>
-<h3 id="LSB"><a href="#LSB" class="headerlink" title="LSB"></a>LSB</h3>
+<h3 id="LSB"><a href="#LSB" class="headerlink" title="LSB"></a>LSB</h3><p>题目直说是LSB隐写，用Stegsolve打开，修改三色通道，保存图片出二维码，扫描出flag</p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604090552.png" alt="">   <img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604090742.png" alt=""></p>
+<p><code>cumtctf{1sb_i4_s0_Ea4y}</code></p>
+<h3 id="rar"><a href="#rar" class="headerlink" title="rar"></a>rar</h3><p>题目提示密码四位纯数字，用 AccentRPR 暴力破解得出密码为8795 输入密码后出falg</p>
+<p><code>flag{1773c5da790bd3caff38e3decd180eb7}</code></p>
+<h3 id="qr"><a href="#qr" class="headerlink" title="qr"></a>qr</h3><p>签到题，扫描二维码出flag</p>
+<h3 id="文件中的秘密"><a href="#文件中的秘密" class="headerlink" title="文件中的秘密"></a>文件中的秘密</h3><p>右击图片属性，点详细信息出flag</p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604091426.png" alt=""></p>
+<p><code>flag{870c5a72806115cb5439345d8b014396}</code></p>
+<h3 id="wireshark"><a href="#wireshark" class="headerlink" title="wireshark"></a>wireshark</h3><p>流量分析题，用wiresharkda打开，找到这个流量包</p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604092026.png" alt=""></p>
+<p>查看后得出flag</p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604092133.png" alt=""></p>
+<p><code>ffb7567a1d4f4abd54e022f8facd</code></p>
+<h3 id="ningen"><a href="#ningen" class="headerlink" title="ningen"></a>ningen</h3><p>给出一张图片，拖进kali用<code>binwale -e</code>  命令分离出一个压缩包，题目提示四位数字，用<code>fcrackzip</code>爆破出密码为8368</p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604094054.png" alt=""></p>
+<p>输密码出flag</p>
+<p><code>flag{b025fc9ca797a67d2103bfbc407a6d5f}</code></p>
+<h3 id="zip伪加密"><a href="#zip伪加密" class="headerlink" title="zip伪加密"></a>zip伪加密</h3><p>题目已经说是伪加密，拖进winhex修改,保存后打开出flag</p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604094521.png" alt=""></p>
+<p><code>flag{Adm1N-B2G-kU-SZIP}</code></p>
+<h3 id="镜子里面的世界"><a href="#镜子里面的世界" class="headerlink" title="镜子里面的世界"></a>镜子里面的世界</h3><p>拖进kali和winhex没发现东西，用Stegsolve打开，修改三色通道查看信息得出falg</p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604095847.png" alt=""></p>
+<p><code>st3g0_ saurus_wr3cks</code></p>
+<h3 id="小明的保险箱"><a href="#小明的保险箱" class="headerlink" title="小明的保险箱"></a>小明的保险箱</h3><p>拖到kali中 用<code>binwalk -e</code> 分解出一个rar文件，题目提示四位数字，爆破出密码得7869，输入出flag</p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604101108.png" alt=""></p>
+<p><code>flag{75a3d68bf071ee188c418ea6cf0bb043}</code></p>
+<h3 id="被嗅探的流量"><a href="#被嗅探的流量" class="headerlink" title="被嗅探的流量"></a>被嗅探的流量</h3><p>又是流量分析题，用wireshark打开，tcp追流搜索直接出flag</p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604102313.png" alt=""></p>
+<p><code>flag{da73d88936010da1eeeb36e945ec4b97}</code></p>
+<h3 id="爱因斯坦"><a href="#爱因斯坦" class="headerlink" title="爱因斯坦"></a>爱因斯坦</h3><p>右击图片属性，详细信息出flag</p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604102750.png" alt=""></p>
+<p><code>this_is_not_password</code></p>
+<h3 id="easycap"><a href="#easycap" class="headerlink" title="easycap"></a>easycap</h3><p>打开文件全是tcp，追流直接出flag</p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604103210.png" alt=""></p>
+<p><code>FLAG:385b87afc8671dee07550290d16a8071</code></p>
+<h3 id="假如给我三天光明"><a href="#假如给我三天光明" class="headerlink" title="假如给我三天光明"></a>假如给我三天光明</h3><p>打开压缩包有一张图片和音频，音频加密，图片下是盲文，对照表翻译出密码<code>kmdonowg</code></p>
+<p>输入密码后音频是一段摩斯电码，拖进Audacity 查看音频 看宽度识别长短音 中间有空格就是 “  ”</p>
+<p>得出莫斯电码为<code>-.-.  -  ..-.  .--  .--.  .  ..  -----  ---..  --...  ...--  ..---  ..--..  ..---  ...--  -..  --..</code></p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604105013.png" alt=""></p>
+<p>翻译后明文 <code>CTFWPEI08732?23DZ</code> 修改大小写得出flag</p>
+<p><code>wpei08732?23dz</code></p>
+<h3 id="FLAG"><a href="#FLAG" class="headerlink" title="FLAG"></a>FLAG</h3><p>拖进StegSolve 发现最低位隐写是的标头文件是zip格式</p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604110019.png" alt=""></p>
+<p>保存为zip文件打开发现文件中有一个“1”，当我想提取发现压缩包损坏，直接拖进kali提取，用<code>strings</code>命令查看字符串得出flag</p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604110957.png" alt=""></p>
+<p><code>hctf{dd0gf4c3tok3yb0ard4g41n~~~}</code></p>
+<h3 id="另外一个世界"><a href="#另外一个世界" class="headerlink" title="另外一个世界"></a>另外一个世界</h3><p>图片拖进winhex 最后有一个二进制，解出来不是flag，转换成ascll得出flag</p>
+<p><code>koekj3s</code></p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604111832.png" alt=""></p>
+<h3 id="隐藏的钥匙"><a href="#隐藏的钥匙" class="headerlink" title="隐藏的钥匙"></a>隐藏的钥匙</h3><p>图片拖进winhex 搜flag 直接出flag</p>
+<p><img src="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/misc/20200604112505.png" alt=""></p>
+<p><code>Mzc3Y2JhZGRhMWVjYTJmMmY3M2QzNjI3Nzc4MWYwMGE=</code></p>
+
             </div>
             <hr/>
 
@@ -728,9 +787,11 @@
 
 
 平台链接：BUUCTF
-金三胖打开压缩包是一个gif，拖入ps查看图层得出flag
+金三胖
+打开压缩包是一个gif，拖入ps查看图层得出flag
 flag{he11ohongke}
-二维码扫描后显示secret is here ，我们直接将图片拖到kali利用binwalk -
+二维码
+扫描后显示secret is here ，我们直接将图片拖到kali利用binwalk
                         
                     </div>
                     <div class="publish-info">
