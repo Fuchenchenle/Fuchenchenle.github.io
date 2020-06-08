@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>AD域</title>
+      <link href="/2020/06/08/AD%E5%9F%9F/"/>
+      <url>/2020/06/08/AD%E5%9F%9F/</url>
+      
+        <content type="html"><![CDATA[<center>基于 网络系统管理 Windows server 2019  AD域控搭建</center>]]></content>
+      
+      
+      <categories>
+          
+          <category> Server </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>BUUCTF-Misc</title>
       <link href="/2020/06/03/BUUCTF-Misc/"/>
       <url>/2020/06/03/BUUCTF-Misc/</url>
