@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="AD域, Fuchenchenle">
+    <meta name="keywords" content="AD域控制器搭建, Fuchenchenle">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>AD域 | Fuchenchenle</title>
+    <title>AD域控制器搭建 | Fuchenchenle</title>
     <link rel="icon" type="image/jpeg" href="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/%E5%B0%81%E9%9D%A2/avatar.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/Windows%20server%202019/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">AD域</h1>
+                    <h1 class="description center-align post-title">AD域控制器搭建</h1>
                 </div>
             </div>
         </div>
@@ -420,8 +420,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Server/" class="post-category">
-                                Server
+                            <a href="/categories/Server-2019/" class="post-category">
+                                Server 2019
                             </a>
                         
                     </div>
@@ -433,7 +433,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-08
+                    2020-06-09
                 </div>
                 
 
@@ -442,7 +442,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    16
+                    349
                 </div>
                 
 
@@ -454,8 +454,43 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <center>基于 网络系统管理 Windows server 2019  AD域控搭建</center>
-
+                <h2 id="基于-网络系统管理-WindowsServer2019-AD域控制器基础教程"><a href="#基于-网络系统管理-WindowsServer2019-AD域控制器基础教程" class="headerlink" title="基于 网络系统管理  WindowsServer2019  AD域控制器基础教程"></a><center>基于 网络系统管理  WindowsServer2019  AD域控制器基础教程</center></h2><h5 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h5><p>1.将主域控制器名称更改为DC-1，辅域控制器更改名称为DC-2、</p>
+<p>2.解决先决条件，添加修改管理员账户密码</p>
+<p><img src="https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/%E5%85%88%E5%86%B3%E6%9D%A1%E4%BB%B6.png" alt=""></p>
+<h3 id="第一台"><a href="#第一台" class="headerlink" title="第一台"></a>第一台</h3><h4 id="安装AD域服务"><a href="#安装AD域服务" class="headerlink" title="安装AD域服务"></a>安装AD域服务</h4><p><img src="https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/20200609100823.png" alt=""></p>
+<p>勾线上AD域服务，其他默认下一步直到安装</p>
+<p><img src="https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/20200609101138.png" alt=""></p>
+<h4 id="安装域控制器"><a href="#安装域控制器" class="headerlink" title="安装域控制器"></a>安装域控制器</h4><p>点击 <code>将此服务器提升为域控制器</code></p>
+<p><img src="https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/20200609101537.png" alt=""></p>
+<p>输入你要创建的根域名</p>
+<p><img src="https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/20200609101834.png" alt=""></p>
+<p>设置林功能级别，输入DSRM密码</p>
+<p><img src="https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/20200609101834.png" alt=""></p>
+<p>一直点下一步，选择日志文件存放的位置</p>
+<p><img src="C:%5CUsers%5C49059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200609102220033.png" alt=""></p>
+<p>一直点下一步，先决条件没有问题后直接安装，重启</p>
+<p>将第一个DNS指向辅域控制器，第二个DNS指向自己</p>
+<p><img src="https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/20200609104841.png" alt=""></p>
+<h3 id="第二台"><a href="#第二台" class="headerlink" title="第二台"></a>第二台</h3><h5 id="准备-1"><a href="#准备-1" class="headerlink" title="准备"></a>准备</h5><p>1.修改管理员密码。解决先决条件</p>
+<p>2.将DNS指向主域控制器</p>
+<p>3.将计算机名称更改为DC-1</p>
+<h4 id="安装AD域服务-1"><a href="#安装AD域服务-1" class="headerlink" title="安装AD域服务"></a>安装AD域服务</h4><p><img src="https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/20200609100823.png" alt=""></p>
+<p>勾线上AD域服务，其他默认下一步直到安装</p>
+<p><img src="https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/20200609101138.png" alt=""></p>
+<h4 id="安装域控制器-1"><a href="#安装域控制器-1" class="headerlink" title="安装域控制器"></a>安装域控制器</h4><p>点击 <code>将此服务器提升为域控制器</code></p>
+<p><img src="https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/20200609101537.png" alt=""></p>
+<p>将此服务器添加到现有域</p>
+<p><img src="https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/20200609103352.png" alt=""></p>
+<p>输入用户账户和密码</p>
+<p><img src="https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/20200609103620.png" alt=""></p>
+<p>设置DSRM的密码</p>
+<p><img src="https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/20200609103814.png" alt=""></p>
+<p>指定复制选项为DC-1</p>
+<p><img src="https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/20200609103953.png" alt=""></p>
+<p>后面一直点下一步安装,重启</p>
+<p>将第一个DNS指向主域控制器，第二个DNS指向自己</p>
+<p><img src="https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/20200609105317.png" alt=""></p>
+<h4 id="查看域中计算机"><a href="#查看域中计算机" class="headerlink" title="查看域中计算机"></a>查看域中计算机</h4><p><img src="https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/20200609105725.png" alt=""></p>
 
             </div>
             <hr/>
@@ -471,7 +506,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">fuchenchenle</a>
+                    <a href="/about" rel="external nofollow noreferrer">Fuchenchenle</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -481,7 +516,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/06/08/AD%E5%9F%9F/">http://yoursite.com/2020/06/08/AD%E5%9F%9F/</a>
+                    <a href="http://yoursite.com/2020/06/09/AD%E5%9F%9F/">http://yoursite.com/2020/06/09/AD%E5%9F%9F/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -494,7 +529,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">fuchenchenle</a>
+                    <a href="/about" target="_blank">Fuchenchenle</a>
                     !
                 </span>
             </div>
@@ -693,32 +728,34 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2020/06/08/AD%E5%9F%9F/">
+                <a href="/2020/06/09/AD%E5%9F%9F/">
                     <div class="card-image">
                         
-                        <img src="https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/Windows%20server%202019/3.jpg" class="responsive-img" alt="AD域">
+                        <img src="https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/3.jpg" class="responsive-img" alt="AD域控制器搭建">
                         
-                        <span class="card-title">AD域</span>
+                        <span class="card-title">AD域控制器搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于 网络系统管理 Windows server 2019  AD域控搭建
+                            基于 网络系统管理  WindowsServer2019  AD域控制器基础教程准备1.将主域控制器名称更改为DC-1，辅域控制器更改名称为DC-2、
+2.解决先决条件，添加修改管理员账户密码
 
-
+第一台安装AD域服务
+勾线上AD域服务，其他
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-09
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Server/" class="post-category">
-                                    Server
+                            <a href="/categories/Server-2019/" class="post-category">
+                                    Server 2019
                                 </a>
                             
                             
