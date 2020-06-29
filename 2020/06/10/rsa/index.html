@@ -523,7 +523,7 @@ c = 2472230540388738207356731646764908066263155290596022939907910799560215441817
 <p>本人老笨比了,还是看不懂，直接抄大佬的脚本（嘻嘻）</p>
 <p>分析个脚本？</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> libnum
-    invq<span class="token operator">=</span>libnum<span class="token punctuation">.</span>invmod<span class="token punctuation">(</span>p<span class="token punctuation">,</span>q<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#直接卡在这一步，为什么要用q去模逆p都没搞懂</span>
+    InvQ<span class="token operator">=</span>libnum<span class="token punctuation">.</span>invmod<span class="token punctuation">(</span>p<span class="token punctuation">,</span>q<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#直接卡在这一步，为什么要用q去模逆p都没搞懂</span>
     mp <span class="token operator">=</span> pow<span class="token punctuation">(</span>c<span class="token punctuation">,</span>dp<span class="token punctuation">,</span>p<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#mp就是m2 参考中国剩余定理，本人老笨比，看不懂，直接背公式，套就完事了</span>
     mq <span class="token operator">=</span> pow<span class="token punctuation">(</span>c<span class="token punctuation">,</span>dq<span class="token punctuation">,</span>q<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#mq就是m1  看我上面贴的链接就知道了</span>
     m<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>mp<span class="token operator">-</span>mq<span class="token punctuation">)</span><span class="token operator">*</span>InvQ<span class="token punctuation">)</span><span class="token operator">%</span>p<span class="token punctuation">)</span><span class="token operator">*</span>q<span class="token operator">+</span>mq    <span class="token comment" spellcheck="true">#卡住了，老笨比了，看了半天也没看懂为什么</span>
@@ -565,7 +565,7 @@ s2 <span class="token operator">=</span> s<span class="token punctuation">[</spa
 
 <span class="token keyword">if</span> s1 <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
     s1 <span class="token operator">=</span> <span class="token operator">-</span>s1
-    c1 <span class="token operator">=</span> libmum<span class="token punctuation">.</span>invmod<span class="token punctuation">(</span>c1<span class="token punctuation">,</span>n<span class="token punctuation">)</span>
+    c1 <span class="token operator">=</span> libnum<span class="token punctuation">.</span>invmod<span class="token punctuation">(</span>c1<span class="token punctuation">,</span>n<span class="token punctuation">)</span>
 <span class="token keyword">elif</span> s2 <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
     s2 <span class="token operator">=</span> <span class="token operator">-</span>s2
     c2 <span class="token operator">=</span> libnum<span class="token punctuation">.</span>invmod<span class="token punctuation">(</span>c2<span class="token punctuation">,</span>n<span class="token punctuation">)</span>
