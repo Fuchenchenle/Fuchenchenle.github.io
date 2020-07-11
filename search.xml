@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>vsftpd</title>
+      <link href="/2020/07/11/vsftpd/"/>
+      <url>/2020/07/11/vsftpd/</url>
+      
+        <content type="html"><![CDATA[<center>FTP</center><center>(虚拟用户登录)</center><h3 id="安装vsftp"><a href="#安装vsftp" class="headerlink" title="安装vsftp"></a>安装vsftp</h3><pre><code>apt install –y vsftpd</code></pre><h3 id="安装虚拟数据库"><a href="#安装虚拟数据库" class="headerlink" title="安装虚拟数据库"></a>安装虚拟数据库</h3><pre><code>apt install db-util</code></pre><h3 id="创建数据库文件"><a href="#创建数据库文件" class="headerlink" title="创建数据库文件"></a>创建数据库文件</h3><pre><code>mkdir /etc/vsftpd.txtvim /etc/vsftpd.txtvsftpd  #账号123456   #密码</code></pre><p><code>奇数行账号</code></p><p><code>偶数行密码</code></p><h3 id="生成数据库"><a href="#生成数据库" class="headerlink" title="生成数据库"></a>生成数据库</h3><pre><code>db_load –T –t hash –f /etc/vsftpd.txt /etc/vsftpd.db</code></pre><h3 id="配置pam文件"><a href="#配置pam文件" class="headerlink" title="配置pam文件"></a>配置pam文件</h3><pre><code>vim /etc/pam.d/vsftpd</code></pre><h5 id="最前面添加"><a href="#最前面添加" class="headerlink" title="最前面添加"></a>最前面添加</h5><pre><code>auth sufficient pam_userdb.so db=/etc/vsftpd/vsftpd_loginaccount sufficient pam_userdb.so db=/etc/vsftpd/vsftpd_login</code></pre><h3 id="创建一个系统用户"><a href="#创建一个系统用户" class="headerlink" title="创建一个系统用户"></a>创建一个系统用户</h3><pre><code>useradd vsftpd -d /home/vsftpd -s /bin/false</code></pre><h3 id="修改虚拟用户配置文件"><a href="#修改虚拟用户配置文件" class="headerlink" title="修改虚拟用户配置文件"></a>修改虚拟用户配置文件</h3><pre><code>mkdir /etc/vsftpd_user_confvim /etc/vsftpd_user_conf</code></pre><h5 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h5><pre><code>write_enable=YES \#允许浏览FTP目录和下载 anon_world_readable_only=NO \#允许虚拟用户上传文件 anon_upload_enable=YES \#允许虚拟用户创建目录 anon_mkdir_write_enable=YES \#允许虚拟用户执行其他操作（如改名、删除） \#指定虚拟用户的虚拟目录（虚拟用户登录后的主目录） local_root=/ftproot/admin/修改vsftp的主配置目录Nano /etc/vsftpd.conf取消注释local_enable=YESwrite_enable=YES添加guest_enable=YESguest_username=vsftpduser_config_dir=/etc/vsftpd_user_conf  #虚拟配置文件路径local_enable=YES</code></pre><h3 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h3><pre><code>service vsftpd restar</code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>rsa</title>
       <link href="/2020/06/10/rsa/"/>
       <url>/2020/06/10/rsa/</url>

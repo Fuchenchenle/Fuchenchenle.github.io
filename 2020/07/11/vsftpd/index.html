@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="rsa, Fuchenchenle">
+    <meta name="keywords" content="vsftpd, Fuchenchenle">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>rsa | Fuchenchenle</title>
+    <title>vsftpd | Fuchenchenle</title>
     <link rel="icon" type="image/jpeg" href="https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/%E5%B0%81%E9%9D%A2/avatar.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/v2-4f7bb5ea2f5c6fca24d45ae96d020132_b.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://fuchenchen.oss-cn-qingdao.aliyuncs.com/img/%E5%B0%81%E9%9D%A2/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">rsa</h1>
+                    <h1 class="description center-align post-title">vsftpd</h1>
                 </div>
             </div>
         </div>
@@ -406,25 +406,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/RSA/" class="post-category">
-                                RSA
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -433,7 +420,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-10
+                    2020-07-11
                 </div>
                 
 
@@ -442,7 +429,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    252
                 </div>
                 
 
@@ -454,125 +441,51 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <center>什么时候世界末日了，我就不用学RSA了，太难了</center>
+                <center>FTP</center>
 
-<p>题目平台 <a href="https://buuoj.cn/" target="_blank" rel="noopener">BUUCTF</a></p>
-<p>什么叫RSA? 我怎么知道什么叫RSA</p>
-<p>想搞懂RSA原理的建议去看这个视频，搞不懂多看几遍，这是我在全网能够找到最通俗易懂的教程了</p>
-<p><a href="https://www.bilibili.com/video/BV1Ts411H7u9?from=search&seid=7967272613449962470" target="_blank" rel="noopener">李永乐讲RSA</a></p>
-<p>什么？还是不懂？我也不懂，直接套公式背公式就完事了</p>
-<p>不要和我讲什么：费马定理，欧几里得算法，中国剩余定理，辗转相除法，直接ctrl+c   ctrl+v 复制代码，全梭哈 ，梭哈，梭哈！</p>
-<pre><code>m:明文     c:密文       e:公钥        d:私钥      n:模     phi(n)：欧拉函数值</code></pre><pre><code> n:p*q      phi(n): (p-1) *(q-1) </code></pre><p>我怎么知道N和phi(n)是什么东西，反正有公式，直接套他就完事了</p>
-<p>知道<code>m c e d n phi(n)</code></p>
-<p>直接上公式</p>
-<p>加密：c = m**e mod n</p>
-<p>​           m**e 除以n求余数c</p>
-<p>​          明文的e次幂除以n得出密文¿</p>
-<p>解密：m  = c**e mod n</p>
-<p>​           c**e 除以 n 求余数m</p>
-<p>​           密文的e次幂除以n得出明文¿</p>
-<p>知道公式，直接做题</p>
-<h3 id="easyrsa"><a href="#easyrsa" class="headerlink" title="easyrsa"></a>easyrsa</h3><pre class=" language-python"><code class="language-python">p <span class="token operator">=</span> <span class="token number">473398607161</span>
-q <span class="token operator">=</span> <span class="token number">4511491</span>
-e <span class="token operator">=</span> <span class="token number">17</span></code></pre>
-<p>知道p q e 典型的求d的出flag</p>
-<p>d怎么求？这里要用到辗转相除法，怎么还有定理？直接套公式，一把梭</p>
-<p><code>d = e mod phi(n)</code></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> libnum
-p <span class="token operator">=</span> <span class="token number">473398607161</span>
-q <span class="token operator">=</span> <span class="token number">4511491</span>
-e <span class="token operator">=</span> <span class="token number">17</span>
-fn <span class="token operator">=</span> <span class="token punctuation">(</span>p<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>q<span class="token number">-1</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>libnum<span class="token punctuation">.</span>invmod<span class="token punctuation">(</span>e<span class="token punctuation">,</span>fn<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<h3 id="easyrsa-1"><a href="#easyrsa-1" class="headerlink" title="easyrsa 1"></a>easyrsa 1</h3><pre class=" language-python"><code class="language-python">p <span class="token operator">=</span>  <span class="token number">9648423029010515676590551740010426534945737639235739800643989352039852507298491399561035009163427050370107570733633350911691280297777160200625281665378483</span>
-q <span class="token operator">=</span>  <span class="token number">11874843837980297032092405848653656852760910154543380907650040190704283358909208578251063047732443992230647903887510065547947313543299303261986053486569407</span>
-e <span class="token operator">=</span>  <span class="token number">65537</span>
-c <span class="token operator">=</span> <span class="token number">83208298995174604174773590298203639360540024871256126892889661345742403314929861939100492666605647316646576486526217457006376842280869728581726746401583705899941768214138742259689334840735633553053887641847651173776251820293087212885670180367406807406765923638973161375817392737747832762751690104423869019034</span></code></pre>
-<p>知道p q e c 典型的求m</p>
-<p>直接套公式</p>
-<p><code>c的d次幂除以N求余数m</code></p>
-<p>我们不知道d怎么办？求啊。 怎么求？套公式啊！</p>
-<p><code>d = e mod phi(n)</code></p>
-<pre class=" language-python"><code class="language-python">n <span class="token operator">=</span> p<span class="token operator">*</span>q
-phi<span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">(</span>q<span class="token number">-1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>p<span class="token number">-1</span><span class="token punctuation">)</span></code></pre>
-<p>知道了n和phi(n) 直接解出d</p>
-<pre class=" language-python"><code class="language-python">d <span class="token operator">=</span> <span class="token punctuation">(</span>libnum<span class="token punctuation">.</span>invmod<span class="token punctuation">(</span>e<span class="token punctuation">,</span>fn<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<p>知道d你套公式还套不出一个m?</p>
-<pre class=" language-python"><code class="language-python">flag <span class="token operator">=</span> pow<span class="token punctuation">(</span>c<span class="token punctuation">,</span>d<span class="token punctuation">,</span>n<span class="token punctuation">)</span></code></pre>
-<p>完整代码</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> libnum
+<center>(虚拟用户登录)</center>
 
-n <span class="token operator">=</span> p<span class="token operator">*</span>q
-fn <span class="token operator">=</span> <span class="token punctuation">(</span>p<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>q<span class="token number">-1</span><span class="token punctuation">)</span>
-d <span class="token operator">=</span> <span class="token punctuation">(</span>libnum<span class="token punctuation">.</span>invmod<span class="token punctuation">(</span>e<span class="token punctuation">,</span>fn<span class="token punctuation">)</span><span class="token punctuation">)</span>
-flag <span class="token operator">=</span> pow<span class="token punctuation">(</span>c<span class="token punctuation">,</span>d<span class="token punctuation">,</span>n<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span></code></pre>
-<h3 id="RSA1"><a href="#RSA1" class="headerlink" title="RSA1"></a>RSA1</h3><p>嘻嘻嘻，出题人NM$L</p>
-<p>这题又多了一个dp 和 dq</p>
-<p>什么是dp和dq ? 稍微了解就知道了，我搁百度搜了半天也没人给我解释什么是dp和dq，套公式，找大佬脚本，一把梭，全梭哈！</p>
-<p><a href="https://blog.csdn.net/qq_32350719/article/details/102719279" target="_blank" rel="noopener">RSA1</a> 大家可以看这篇文章去理解dp的求法，反正我是没看懂，本人老笨比了</p>
-<p><code>dp = d%(p-1)</code></p>
-<p><code>dq = p%(q-1)</code></p>
-<p>知道dp和dq怎么求的，直接上题</p>
-<pre><code>p = 8637633767257008567099653486541091171320491509433615447539162437911244175885667806398411790524083553445158113502227745206205327690939504032994699902053229
-q = 12640674973996472769176047937170883420927050821480010581593137135372473880595613737337630629752577346147039284030082593490776630572584959954205336880228469
-dp =6500795702216834621109042351193261530650043841056252930930949663358625016881832840728066026150264693076109354874099841380454881716097778307268116910582929
-dq =783472263673553449019532580386470672380574033551303889137911760438881683674556098098256795673512201963002175438762767516968043599582527539160811120550041
-c = 24722305403887382073567316467649080662631552905960229399079107995602154418176056335800638887527614164073530437657085079676157350205351945222989351316076486573599576041978339872265925062764318536089007310270278526159678937431903862892400747915525118983959970607934142974736675784325993445942031372107342103852</code></pre><p>看题得出知道 <code>p,q,c,dp,dq</code> 直接求M (¿这怎么求)  套公式，一把梭！</p>
-<p><code>m≡(((m2−m1)∗p−1 mod q)p+m1) mod n</code></p>
-<p>本人老笨比了,还是看不懂，直接抄大佬的脚本（嘻嘻）</p>
-<p>分析个脚本？</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> libnum
-    InvQ<span class="token operator">=</span>libnum<span class="token punctuation">.</span>invmod<span class="token punctuation">(</span>p<span class="token punctuation">,</span>q<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#直接卡在这一步，为什么要用q去模逆p都没搞懂</span>
-    mp <span class="token operator">=</span> pow<span class="token punctuation">(</span>c<span class="token punctuation">,</span>dp<span class="token punctuation">,</span>p<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#mp就是m2 参考中国剩余定理，本人老笨比，看不懂，直接背公式，套就完事了</span>
-    mq <span class="token operator">=</span> pow<span class="token punctuation">(</span>c<span class="token punctuation">,</span>dq<span class="token punctuation">,</span>q<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#mq就是m1  看我上面贴的链接就知道了</span>
-    m<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>mp<span class="token operator">-</span>mq<span class="token punctuation">)</span><span class="token operator">*</span>InvQ<span class="token punctuation">)</span><span class="token operator">%</span>p<span class="token punctuation">)</span><span class="token operator">*</span>q<span class="token operator">+</span>mq    <span class="token comment" spellcheck="true">#卡住了，老笨比了，看了半天也没看懂为什么</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>libnum<span class="token punctuation">.</span>n2s<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#数字型转换字符串</span></code></pre>
-<p>呜呜呜，我学了一下午的dp和dq了,就是看不懂，随缘更新吧，说不定哪天我就悟了（不可能）</p>
-<h3 id="RSA共模攻击"><a href="#RSA共模攻击" class="headerlink" title="RSA共模攻击"></a>RSA共模攻击</h3><p>这比赛怎么喜欢整这些阴间的题目？</p>
-<p>我去借鉴（抄）大佬脚本发现脚本不难写，但是要理解欧几里得算法</p>
-<p> <strong>欧几里得算法就是 用较大数除以较小数，再用得出的余数去除除数，再用第二次出现的余数去除以第一个余数，如此反复，一直到最后的余数是0为止。</strong>太绕了？我也看不懂，直接举个例子</p>
-<p><code>*求10和35的最大公约数：*</code></p>
-<p><code>*25/10 = 3 ······5*</code></p>
-<p><code>*再用除数10去除以余数5*</code></p>
-<p><code>*10/5 = 2······0*</code></p>
-<p><code>*得出10和25的最大公约数 是 5*</code> </p>
-<p>理解欧几里得算法，那就看看题？</p>
-<pre class=" language-python"><code class="language-python">c1<span class="token operator">=</span><span class="token number">22322035275663237041646893770451933509324701913484303338076210603542612758956262869640822486470121149424485571361007421293675516338822195280313794991136048140918842471219840263536338886250492682739436410013436651161720725855484866690084788721349555662019879081501113222996123305533009325964377798892703161521852805956811219563883312896330156298621674684353919547558127920925706842808914762199011054955816534977675267395009575347820387073483928425066536361482774892370969520740304287456555508933372782327506569010772537497541764311429052216291198932092617792645253901478910801592878203564861118912045464959832566051361</span>
+<h3 id="安装vsftp"><a href="#安装vsftp" class="headerlink" title="安装vsftp"></a>安装vsftp</h3><pre><code>apt install –y vsftpd</code></pre><h3 id="安装虚拟数据库"><a href="#安装虚拟数据库" class="headerlink" title="安装虚拟数据库"></a>安装虚拟数据库</h3><pre><code>apt install db-util</code></pre><h3 id="创建数据库文件"><a href="#创建数据库文件" class="headerlink" title="创建数据库文件"></a>创建数据库文件</h3><pre><code>mkdir /etc/vsftpd.txt
 
-n<span class="token operator">=</span><span class="token number">22708078815885011462462049064339185898712439277226831073457888403129378547350292420267016551819052430779004755846649044001024141485283286483130702616057274698473611149508798869706347501931583117632710700787228016480127677393649929530416598686027354216422565934459015161927613607902831542857977859612596282353679327773303727004407262197231586324599181983572622404590354084541788062262164510140605868122410388090174420147752408554129789760902300898046273909007852818474030770699647647363015102118956737673941354217692696044969695308506436573142565573487583507037356944848039864382339216266670673567488871508925311154801</span>
+vim /etc/vsftpd.txt
 
-e1<span class="token operator">=</span><span class="token number">11187289</span>
+vsftpd  #账号
+123456   #密码</code></pre><p><code>奇数行账号</code></p>
+<p><code>偶数行密码</code></p>
+<h3 id="生成数据库"><a href="#生成数据库" class="headerlink" title="生成数据库"></a>生成数据库</h3><pre><code>db_load –T –t hash –f /etc/vsftpd.txt /etc/vsftpd.db</code></pre><h3 id="配置pam文件"><a href="#配置pam文件" class="headerlink" title="配置pam文件"></a>配置pam文件</h3><pre><code>vim /etc/pam.d/vsftpd</code></pre><h5 id="最前面添加"><a href="#最前面添加" class="headerlink" title="最前面添加"></a>最前面添加</h5><pre><code>auth sufficient pam_userdb.so db=/etc/vsftpd/vsftpd_login
 
-c2<span class="token operator">=</span><span class="token number">18702010045187015556548691642394982835669262147230212731309938675226458555210425972429418449273410535387985931036711854265623905066805665751803269106880746769003478900791099590239513925449748814075904017471585572848473556490565450062664706449128415834787961947266259789785962922238701134079720414228414066193071495304612341052987455615930023536823801499269773357186087452747500840640419365011554421183037505653461286732740983702740822671148045619497667184586123657285604061875653909567822328914065337797733444640351518775487649819978262363617265797982843179630888729407238496650987720428708217115257989007867331698397</span>
+account sufficient pam_userdb.so db=/etc/vsftpd/vsftpd_login</code></pre><h3 id="创建一个系统用户"><a href="#创建一个系统用户" class="headerlink" title="创建一个系统用户"></a>创建一个系统用户</h3><pre><code>useradd vsftpd -d /home/vsftpd -s /bin/false</code></pre><h3 id="修改虚拟用户配置文件"><a href="#修改虚拟用户配置文件" class="headerlink" title="修改虚拟用户配置文件"></a>修改虚拟用户配置文件</h3><pre><code>mkdir /etc/vsftpd_user_conf
 
-e2<span class="token operator">=</span><span class="token number">9647291</span></code></pre>
-<p>题目给 c1 c2 e1 e2 和n 让你求m</p>
-<p>我们知道了欧几里得算法，下一步就是知道共模攻击怎么解</p>
-<p><a href="https://www.cnblogs.com/gwind/p/8013154.html" target="_blank" rel="noopener">https://www.cnblogs.com/gwind/p/8013154.html</a>  想要理解的可以看这个链接</p>
-<p>直接上脚本吧</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> libnum
-    <span class="token keyword">def</span> <span class="token function">gcd</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> b <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> a<span class="token punctuation">,</span><span class="token number">0</span>
-           <span class="token keyword">else</span><span class="token punctuation">:</span>
-            x<span class="token punctuation">,</span>y <span class="token operator">=</span> gcd<span class="token punctuation">(</span>b<span class="token punctuation">,</span>a<span class="token operator">%</span>b<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> y<span class="token punctuation">,</span>x <span class="token operator">-</span> <span class="token punctuation">(</span>a<span class="token operator">//</span>b<span class="token punctuation">)</span><span class="token operator">*</span>y
+vim /etc/vsftpd_user_conf</code></pre><h5 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h5><pre><code>write_enable=YES
+ \#允许浏览FTP目录和下载
+ anon_world_readable_only=NO
+ \#允许虚拟用户上传文件
+ anon_upload_enable=YES
+ \#允许虚拟用户创建目录
+ anon_mkdir_write_enable=YES
+ \#允许虚拟用户执行其他操作（如改名、删除）
+ \#指定虚拟用户的虚拟目录（虚拟用户登录后的主目录）
+ local_root=/ftproot/admin/
 
-s <span class="token operator">=</span> gcd<span class="token punctuation">(</span>e1<span class="token punctuation">,</span>e2<span class="token punctuation">)</span>
-s1 <span class="token operator">=</span> s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-s2 <span class="token operator">=</span> s<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+修改vsftp的主配置目录
 
-<span class="token keyword">if</span> s1 <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
-    s1 <span class="token operator">=</span> <span class="token operator">-</span>s1
-    c1 <span class="token operator">=</span> libnum<span class="token punctuation">.</span>invmod<span class="token punctuation">(</span>c1<span class="token punctuation">,</span>n<span class="token punctuation">)</span>
-<span class="token keyword">elif</span> s2 <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
-    s2 <span class="token operator">=</span> <span class="token operator">-</span>s2
-    c2 <span class="token operator">=</span> libnum<span class="token punctuation">.</span>invmod<span class="token punctuation">(</span>c2<span class="token punctuation">,</span>n<span class="token punctuation">)</span>
+Nano /etc/vsftpd.conf
 
-m <span class="token operator">=</span> pow<span class="token punctuation">(</span>c1<span class="token punctuation">,</span>s1<span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token operator">*</span>pow<span class="token punctuation">(</span>c2<span class="token punctuation">,</span>s2<span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token operator">%</span>n
-<span class="token keyword">print</span><span class="token punctuation">(</span>libnum<span class="token punctuation">.</span>n2s<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+取消注释
 
+local_enable=YES
+
+write_enable=YES
+
+添加
+
+guest_enable=YES
+
+guest_username=vsftpd
+
+user_config_dir=/etc/vsftpd_user_conf  #虚拟配置文件路径
+
+local_enable=YES</code></pre><h3 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h3><pre><code>service vsftpd restar</code></pre>
             </div>
             <hr/>
 
@@ -597,7 +510,7 @@ m <span class="token operator">=</span> pow<span class="token punctuation">(</sp
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/06/10/rsa/">http://yoursite.com/2020/06/10/rsa/</a>
+                    <a href="http://yoursite.com/2020/07/11/vsftpd/">http://yoursite.com/2020/07/11/vsftpd/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -634,11 +547,7 @@ m <span class="token operator">=</span> pow<span class="token punctuation">(</sp
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -804,9 +713,10 @@ m <span class="token operator">=</span> pow<span class="token punctuation">(</sp
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/07/11/vsftpd/">
                     <div class="card-image">
@@ -832,9 +742,9 @@ vim /etc/vsftpd.txt
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -843,6 +753,7 @@ vim /etc/vsftpd.txt
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -853,34 +764,36 @@ vim /etc/vsftpd.txt
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/06/09/AD%E5%9F%9F/">
+                <a href="/2020/06/10/rsa/">
                     <div class="card-image">
                         
-                        <img src="https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/3.jpg" class="responsive-img" alt="AD域控制器搭建">
+                        <img src="https://fuchenchenke.oss-cn-qingdao.aliyuncs.com/Blog/server/v2-4f7bb5ea2f5c6fca24d45ae96d020132_b.jpg" class="responsive-img" alt="rsa">
                         
-                        <span class="card-title">AD域控制器搭建</span>
+                        <span class="card-title">rsa</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于 网络系统管理  WindowsServer2019  AD域控制器基础教程准备1.将主域控制器名称更改为DC-1，辅域控制器更改名称为DC-2、
-2.解决先决条件，添加修改管理员账户密码
+                            什么时候世界末日了，我就不用学RSA了，太难了
 
-第一台安装AD域服务
-勾线上AD域服务，其他
+题目平台 BUUCTF
+什么叫RSA? 我怎么知道什么叫RSA
+想搞懂RSA原理的建议去看这个视频，搞不懂多看几遍，这是我在全网能够找到最通俗易懂的教程了
+李永乐讲RSA
+什么？还是不懂？我
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Server-2019/" class="post-category">
-                                    Server 2019
+                            <a href="/categories/RSA/" class="post-category">
+                                    RSA
                                 </a>
                             
                             
@@ -890,8 +803,8 @@ vim /etc/vsftpd.txt
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Windows/">
-                        <span class="chip bg-color">Windows</span>
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>
