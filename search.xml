@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>yum源</title>
+      <link href="/2020/08/08/yum%E6%BA%90/"/>
+      <url>/2020/08/08/yum%E6%BA%90/</url>
+      
+        <content type="html"><![CDATA[<center> Centos7 配置本地Yum 源<center/><p> 这是一篇充满怨气的文章</p><p>去你妈的的网络搭建（小声bb）</p><h3 id="创建并挂载Iso镜像文件"><a href="#创建并挂载Iso镜像文件" class="headerlink" title="创建并挂载Iso镜像文件"></a>创建并挂载Iso镜像文件</h3><pre><code>mkdir /mnr/cdrom mount /dev/cdrom mnt/cdrom</code></pre><h3 id="删除-etc-yum-repos-d-下所有文件"><a href="#删除-etc-yum-repos-d-下所有文件" class="headerlink" title="删除/etc/yum.repos.d/下所有文件"></a>删除/etc/yum.repos.d/下所有文件</h3><pre><code>rm -rf /etc/yum.repos.d/</code></pre><h3 id="配置本地源"><a href="#配置本地源" class="headerlink" title="配置本地源"></a>配置本地源</h3><pre><code>vim /etc/yum.repos.d/iso.repo[iso]name=iso  baseurl=:///mnt/cdrom    #挂载路径gpgcheck=0</code></pre><p>文件要以.reps结尾</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> centos </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Debian10 搭建 vsftpd</title>
       <link href="/2020/07/11/vsftpd/"/>
       <url>/2020/07/11/vsftpd/</url>
